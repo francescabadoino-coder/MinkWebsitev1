@@ -41,8 +41,12 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
         a: "One visualization is a single AI-generated visual of a product or room concept created from your brief. Your monthly allowance resets at the start of each billing cycle.",
       },
       {
-        q: "What's the difference between Slate and Pro?",
-        a: "Slate covers the sourcing essentials: 100 visualizations a month, design-brief analysis, product recommendations, transparent reasoning on every pick, and trade vendor access. Pro adds the parts that save the most time: end-to-end procurement, AI-drafted vendor and client emails, one-click exports, order tracking, and 500 visualizations a month.",
+        q: "How do Slate, Pro, and Studio differ?",
+        a: "Slate ($29/mo) covers the sourcing essentials: 100 visualizations a month, Ora's design-brief analysis, product recommendations from vetted brands, transparent reasoning on every pick, and trade vendor access. Pro ($69/mo) is where Ora starts doing the work for you, adding end-to-end agentic procurement, AI-drafted vendor and client emails, one-click exports, order tracking, and 500 visualizations a month. Studio ($119/mo) is the fullest version of Mink: everything in Pro, 1,000 visualizations a month, and priority delivery tracking with every order in one place. Every tier is built for a single designer.",
+      },
+      {
+        q: "Who is Studio for?",
+        a: "Studio is for designers running Mink at full tilt: high project volume, lots of concurrent sourcing, and orders in flight that need close tracking. You get everything in Pro plus 1,000 visualizations a month and priority delivery tracking, so nothing slips between vendors. If you're regularly bumping against Pro's 500-visualization allowance, Studio is the natural step up.",
       },
       {
         q: "Do I need my own trade accounts?",
@@ -50,7 +54,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
       },
       {
         q: "Can I track my orders in Mink?",
-        a: "Yes. On Pro and Studio, every order Mink procures for you is tracked in one place, so you're not chasing shipping updates across a dozen vendor emails. (Slate and the free Trial don't include order tracking.)",
+        a: "Yes. On Pro, every order Ora procures for you is tracked in one place, so you're not chasing shipping updates across a dozen vendor emails. Studio adds priority delivery tracking on top for higher-volume workloads. (Slate and the free Trial don't include order tracking.)",
       },
       {
         q: "What happens if I reach my monthly visualization limit?",

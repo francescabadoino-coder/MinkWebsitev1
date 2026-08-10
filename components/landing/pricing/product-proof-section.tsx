@@ -1,0 +1,154 @@
+import Image from "next/image";
+import {
+  PRODUCT_TILES,
+  ROOM_TILES,
+  type ProofTile,
+} from "./product-proof-tiles";
+
+/** Rooms sit three across on desktop, so each tile is roughly a third. */
+const ROOM_SIZES = "(min-width: 1024px) 352px, (min-width: 640px) 50vw, 100vw";
+/** Product panels span 65% of the 1152px container on desktop. */
+const PRODUCT_SIZES = "(min-width: 1024px) 730px, 100vw";
+
+function RoomTileCard({ tile }: { tile: ProofTile }) {
+  return (
+    <li className="flex flex-col gap-3">
+      {/*
+        Aspect-ratio box: occupies the exact final image footprint whether the
+        source is present or null, so photography lands with zero layout shift.
+      */}
+      <div className="relative overflow-hidden rounded-xl aspect-[3/2] bg-muted">
+        {tile.src ? (
+          <Image
+            src={tile.src}
+            alt={tile.alt}
+            fill
+            loading="lazy"
+            sizes={ROOM_SIZES}
+            className="object-cover"
+          />
+        ) : (
+          <div
+            className="flex h-full w-full items-center justify-center"
+            aria-hidden
+          >
+            <span className="px-4 text-center text-xs text-muted-foreground">
+              Image pending
+            </span>
+          </div>
+        )}
+      </div>
+
+      <span className="text-base leading-relaxed text-foreground">
+        {tile.label}
+      </span>
+    </li>
+  );
+}
+
+/**
+ * One full-width product row: a 35% text column and a 65% white image panel.
+ * `textFirst` flips the sides on desktop only. On mobile every row stacks
+ * panel-then-text, so the reading order never alternates.
+ */
+function ProductRow({
+  tile,
+  textFirst,
+}: {
+  tile: ProofTile;
+  textFirst: boolean;
+}) {
+  return (
+    <li className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-12">
+      {/* Panel is first in the DOM so mobile stacks panel above text. */}
+      <div
+        className={`w-full lg:w-[65%] ${textFirst ? "lg:order-2" : "lg:order-1"}`}
+      >
+        {/* bg-card, not bg-white, so the panel tracks the brand ground tone. */}
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-card p-8 shadow-sm lg:p-12">
+          {tile.src ? (
+            <div className="relative h-full w-full">
+              <Image
+                src={tile.src}
+                alt={tile.alt}
+                fill
+                loading="lazy"
+                sizes={PRODUCT_SIZES}
+                className="object-contain"
+              />
+            </div>
+          ) : (
+            <div
+              className="flex h-full w-full items-center justify-center"
+              aria-hidden
+            >
+              <span className="px-4 text-center text-xs text-neutral-500">
+                Image pending
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div
+        className={`flex w-full flex-col gap-2 lg:w-[35%] ${
+          textFirst ? "lg:order-1" : "lg:order-2"
+        }`}
+      >
+        <span className="font-display text-2xl tracking-tight text-balance text-foreground lg:text-3xl">
+          {tile.label}
+        </span>
+        <span className="text-base leading-relaxed text-muted-foreground">
+          {tile.vendor}
+        </span>
+      </div>
+    </li>
+  );
+}
+
+export function ProductProofSection() {
+  return (
+    <section id="product-proof" className="relative scroll-mt-24 py-24 lg:py-32">
+      {/* Container width and header treatment match the home page sections */}
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+        <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+          Proof
+          <span className="h-px w-8 bg-foreground/30" />
+        </span>
+        <h2 className="mt-5 font-display text-4xl tracking-tight text-balance lg:text-6xl">
+          Real rooms, real products.
+        </h2>
+
+        {/* Group separation is roughly double the old gap-16/20. */}
+        <div className="mt-12 flex flex-col gap-32 lg:mt-16 lg:gap-40">
+          <div>
+            <h3 className="font-display text-2xl tracking-tight lg:text-3xl">
+              Designs made on Pro
+            </h3>
+            <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+              {ROOM_TILES.map((tile) => (
+                <RoomTileCard key={tile.label} tile={tile} />
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-display text-2xl tracking-tight lg:text-3xl">
+              Products sourced by Pro
+            </h3>
+            {/* Row rhythm is deliberately looser than the room tile gap. */}
+            <ul className="mt-10 flex flex-col gap-16 lg:mt-12 lg:gap-24">
+              {PRODUCT_TILES.map((tile, index) => (
+                <ProductRow
+                  key={tile.label}
+                  tile={tile}
+                  textFirst={index % 2 === 0}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,23 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mink">
+  <!--
+    Mink tab mark. Brand values only: Midnight #232323, Day #E3E3E3.
+    Like Vercel's favicon, the mark inverts with the browser chrome so it never
+    sinks into the tab strip: Midnight squircle in light UI, Day squircle in dark UI.
+  -->
+  <style>
+    .ground { fill: #232323 }
+    .mark   { fill: #E3E3E3; stroke: #E3E3E3 }
+    @media (prefers-color-scheme: dark) {
+      .ground { fill: #E3E3E3 }
+      .mark   { fill: #232323; stroke: #232323 }
+    }
+  </style>
+  <rect class="ground" width="180" height="180" rx="44" />
+  <path
+    class="mark"
+    d="M50 54 H130 L90 90 L130 126 H50 L90 90 Z"
+    stroke-width="16"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+</svg>

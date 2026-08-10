@@ -91,7 +91,7 @@ export function AgentsByDesigners() {
             designing. I want those hours back.&rdquo;
           </p>
           <footer className="mt-6 font-mono text-xs uppercase tracking-widest text-background/40">
-            The Mink Customer Study · anonymised
+            The Mink Customer Study · anonymized
           </footer>
         </blockquote>
 

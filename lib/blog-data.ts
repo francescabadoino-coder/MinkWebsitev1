@@ -734,7 +734,7 @@ export const blogPosts: BlogPost[] = [
     readingTime: "5 min read",
     image: "/blog/mink-vs-interiorai.png",
     imageAlt:
-      "A single curled photographic print beside an organised set of cream spec sheets, material swatches and a brass paperclip",
+      "A single curled photographic print beside an organized set of cream spec sheets, material swatches and a brass paperclip",
     topic: "comparisons-and-alternatives",
     author: { name: "The Mink Team", role: "Product" },
     content: [

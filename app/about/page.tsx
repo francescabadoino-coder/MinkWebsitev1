@@ -29,7 +29,7 @@ const FOUNDERS = [
     image: null,
     name: null,
     title: "Co-Founder & CCO",
-    bio: "Our CCO is a practising interior designer at a leading Seattle firm. Over nearly a decade specifying residential and commercial interiors, and designing custom furniture piece by piece, she's lived the sourcing and procurement headaches Mink exists to solve. That fluency in how designers actually work shapes every decision behind the product.",
+    bio: "Our CCO is a practicing interior designer at a leading Seattle firm. Over nearly a decade specifying residential and commercial interiors, and designing custom furniture piece by piece, she's lived the sourcing and procurement headaches Mink exists to solve. That fluency in how designers actually work shapes every decision behind the product.",
   },
   {
     image: "/founder-banzhef.jpg",

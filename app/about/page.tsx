@@ -202,7 +202,11 @@ export default function AboutPage() {
             </span>
             <span className="mt-8 block">
               Our agents handle the tedious work so designers and vendors can
-              focus on making their clients happy.
+              focus on making their{" "}
+              <span className="relative inline-block font-serif italic">
+                clients happy.
+                <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />
+              </span>
             </span>
           </p>
         </div>

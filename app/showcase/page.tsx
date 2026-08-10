@@ -4,6 +4,7 @@ import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
 import { AnimatedWaves } from "@/components/landing/animated-waves";
 import { ProductProofSection } from "@/components/landing/pricing/product-proof-section";
+import { ShowcaseTestimonials } from "@/components/landing/pricing/showcase-testimonials";
 import { PricingClosingCta } from "@/components/landing/pricing/pricing-closing-cta";
 
 export const metadata: Metadata = {
@@ -61,6 +62,10 @@ export default function ShowcasePage() {
           </section>
 
           <ProductProofSection />
+
+          {/* Social proof — renders only once SHOW_TESTIMONIALS is flipped on
+              with real quotes; hidden today so we never ship fabricated ones. */}
+          <ShowcaseTestimonials />
 
           <PricingClosingCta
             headline={

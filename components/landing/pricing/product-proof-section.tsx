@@ -1,50 +1,9 @@
 import Image from "next/image";
-import {
-  PRODUCT_TILES,
-  ROOM_TILES,
-  type ProofTile,
-} from "./product-proof-tiles";
+import { PRODUCT_TILES, type ProofTile } from "./product-proof-tiles";
+import { ShoppableRoom } from "./shoppable-room";
 
-/** Rooms sit three across on desktop, so each tile is roughly a third. */
-const ROOM_SIZES = "(min-width: 1024px) 352px, (min-width: 640px) 50vw, 100vw";
 /** Product panels span 65% of the 1152px container on desktop. */
 const PRODUCT_SIZES = "(min-width: 1024px) 730px, 100vw";
-
-function RoomTileCard({ tile }: { tile: ProofTile }) {
-  return (
-    <li className="flex flex-col gap-3">
-      {/*
-        Aspect-ratio box: occupies the exact final image footprint whether the
-        source is present or null, so photography lands with zero layout shift.
-      */}
-      <div className="relative overflow-hidden rounded-xl aspect-[3/2] bg-muted">
-        {tile.src ? (
-          <Image
-            src={tile.src}
-            alt={tile.alt}
-            fill
-            loading="lazy"
-            sizes={ROOM_SIZES}
-            className="object-cover"
-          />
-        ) : (
-          <div
-            className="flex h-full w-full items-center justify-center"
-            aria-hidden
-          >
-            <span className="px-4 text-center text-xs text-muted-foreground">
-              Image pending
-            </span>
-          </div>
-        )}
-      </div>
-
-      <span className="text-base leading-relaxed text-foreground">
-        {tile.label}
-      </span>
-    </li>
-  );
-}
 
 /**
  * One full-width product row: a 35% text column and a 65% white image panel.
@@ -125,11 +84,13 @@ export function ProductProofSection() {
             <h3 className="font-display text-2xl tracking-tight lg:text-3xl">
               Designs made on Pro
             </h3>
-            <ul className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {ROOM_TILES.map((tile) => (
-                <RoomTileCard key={tile.label} tile={tile} />
-              ))}
-            </ul>
+            <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-muted-foreground text-pretty">
+              Every render is built from real, sourceable pieces. Explore a room
+              and see exactly what Ora specified.
+            </p>
+            <div className="mt-8 lg:mt-10">
+              <ShoppableRoom />
+            </div>
           </div>
 
           <div>

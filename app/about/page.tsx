@@ -144,16 +144,20 @@ export default function AboutPage() {
                 sourcing, coordinating, admin, and endless back and forth.
               </p>
               <p>
-                Before writing a line of product, we ran the Mink Customer
-                Study: 12 practicing interior designers, from solo practitioners
-                to studio principals, walking us through their real projects. All
-                12 pointed at the same bottleneck. None of them wanted to keep
-                the tools they were using.
+                At first I assumed it was me, that a newer designer just hadn&apos;t
+                learned the trick yet. So I took the question to the best
+                interior designers I know, expecting to be shown what I was
+                missing. Instead, every one of them described the exact same
+                grind. This wasn&apos;t a rookie mistake. It was a real problem,
+                and no one had solved it.
               </p>
               <p>
-                So we built for what they told us, then kept going back to them
-                as we shipped. mink is AI shaped by the people who live this
-                work, for the people who live it too.&rdquo;
+                So we ran the Mink Customer Study to be sure: 12 practicing
+                designers, from solo practitioners to studio principals, walking
+                us through real projects. All 12 pointed at the same bottleneck.
+                We built for exactly what they told us, and we haven&apos;t
+                stopped listening since. mink is AI shaped by the people who live
+                this work.&rdquo;
               </p>
             </div>
             {/* Portrait sits beside the attribution so the quote has a face */}

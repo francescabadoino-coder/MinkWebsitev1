@@ -254,21 +254,25 @@ export default function AboutPage() {
                 the founder card frame, but swaps the single portrait for a
                 cluster of 12 small bubbles. */}
             <article className="flex flex-col items-center rounded-3xl border border-foreground/10 bg-muted/40 p-8 text-center">
-              <div className="grid w-36 grid-cols-4 gap-1.5">
-                {STUDY_DESIGNER_PORTRAITS.map((src, i) => (
-                  <span
-                    key={src}
-                    className="relative aspect-square overflow-hidden rounded-full bg-muted ring-1 ring-foreground/10"
-                  >
-                    <Image
-                      src={src || "/placeholder.svg"}
-                      alt={`One of the 12 interior designers from the Mink Customer Study, portrait ${i + 1}`}
-                      fill
-                      sizes="32px"
-                      className="object-cover"
-                    />
-                  </span>
-                ))}
+              {/* Media region matches the founders' 144px portrait height and
+                  is vertically centered, so all three headings share a baseline. */}
+              <div className="flex h-36 items-center justify-center">
+                <div className="grid grid-cols-4 gap-2">
+                  {STUDY_DESIGNER_PORTRAITS.map((src, i) => (
+                    <span
+                      key={src}
+                      className="relative h-10 w-10 overflow-hidden rounded-full bg-muted ring-1 ring-foreground/10"
+                    >
+                      <Image
+                        src={src || "/placeholder.svg"}
+                        alt={`One of the 12 interior designers from the Mink Customer Study, portrait ${i + 1}`}
+                        fill
+                        sizes="40px"
+                        className="object-cover"
+                      />
+                    </span>
+                  ))}
+                </div>
               </div>
               <h3 className="mt-7 text-xl font-medium font-display">
                 The Mink Customer Study

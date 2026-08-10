@@ -336,7 +336,9 @@
   .animate-orbit-spin,
   .animate-orbit-spin-reverse,
   .animate-orbit-counter,
-  .animate-orbit-counter-reverse {
+  .animate-orbit-counter-reverse,
+  .marquee,
+  .marquee-reverse {
     animation: none;
   }
 }

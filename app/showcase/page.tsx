@@ -3,6 +3,7 @@ import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
 import { AnimatedWaves } from "@/components/landing/animated-waves";
+import { ShowcaseCarousel } from "@/components/landing/pricing/showcase-carousel";
 import { ProductProofSection } from "@/components/landing/pricing/product-proof-section";
 import { ShowcaseTestimonials } from "@/components/landing/pricing/showcase-testimonials";
 import { PricingClosingCta } from "@/components/landing/pricing/pricing-closing-cta";
@@ -60,6 +61,10 @@ export default function ShowcasePage() {
               </p>
             </div>
           </section>
+
+          {/* Looping variety band — a quick, alive overview before the curated
+              interactive deep-dive below. Placeholder content for now. */}
+          <ShowcaseCarousel />
 
           <ProductProofSection />
 

@@ -97,6 +97,12 @@ export const ROOM_TILES: ProofTile[] = [
     alt: "Spa-like bathroom with a floating white oak vanity, large-format stone tile, minimal matte fixtures, and daylight washing down the stone wall.",
     isIllustrative: true,
   },
+  {
+    label: "Bedroom",
+    src: "/rooms/bedroom.png",
+    alt: "Serene bedroom with a low platform bed and oatmeal linen headboard dressed in layered cream and taupe bedding, flanked by white oak nightstands, a black linear pendant with opal glass globes, white oak floors, and sheer linen drapes filtering warm daylight.",
+    isIllustrative: true,
+  },
 ];
 
 /**

@@ -154,10 +154,11 @@ export default function AboutPage() {
               <p>
                 So we set out to prove it. In the Mink Customer Study, twelve
                 practicing designers, from solo practitioners to studio
-                principals, walked us through their real projects. Every one of
-                them named the same bottleneck. We built for precisely what they
-                told us, and we have never stopped listening. mink is AI shaped
-                by the people who live this work.&rdquo;
+                principals, walked us through their real projects, and every one
+                of them named the same bottleneck. So we built the answer: AI
+                agents made for interior designers, that take on the sourcing,
+                the quotes, and the coordination, and hand the hours back to the
+                work only a designer can do.&rdquo;
               </p>
             </div>
             {/* Portrait sits beside the attribution so the quote has a face */}

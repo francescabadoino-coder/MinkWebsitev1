@@ -70,15 +70,15 @@ export default function ShowcasePage() {
           <PricingClosingCta
             headline={
               <>
-                Your next project could be{" "}
+                Your next design gem could be{" "}
                 <span className="relative inline-block font-serif italic pr-1">
                   <span className="inline-flex">here</span>
-                  <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-foreground/25" />
+                  <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-accent" />
                 </span>
                 .
               </>
             }
-            description="Start on a real room and let Ora source it, brief to purchase order. The work above was made this way."
+            description="Upload your brief and vision, and let Ora do the heavy work for you."
           />
         </div>
 

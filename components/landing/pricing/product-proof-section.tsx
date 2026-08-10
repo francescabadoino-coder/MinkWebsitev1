@@ -82,7 +82,7 @@ export function ProductProofSection() {
         <div className="mt-12 flex flex-col gap-32 lg:mt-16 lg:gap-40">
           <div>
             <h3 className="font-display text-2xl tracking-tight lg:text-3xl">
-              Designs made on Pro
+              Designs made on <span className="font-bold underline underline-offset-4">Pro</span>
             </h3>
             <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-muted-foreground text-pretty">
               Every render is built from real, sourceable pieces. Explore a room
@@ -95,7 +95,7 @@ export function ProductProofSection() {
 
           <div>
             <h3 className="font-display text-2xl tracking-tight lg:text-3xl">
-              Products sourced by Pro
+              Products sourced by <span className="font-bold underline underline-offset-4">Pro</span>
             </h3>
             {/* Row rhythm is deliberately looser than the room tile gap. */}
             <ul className="mt-10 flex flex-col gap-16 lg:mt-12 lg:gap-24">

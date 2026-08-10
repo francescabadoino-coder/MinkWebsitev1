@@ -278,7 +278,7 @@ export default function AboutPage() {
                 The Mink Customer Study
               </h3>
               <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                12 designers who shaped Mink
+                The founding designers
               </p>
               <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
                 Twelve practicing interior designers, from solo practitioners to

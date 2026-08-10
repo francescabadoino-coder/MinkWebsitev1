@@ -23,21 +23,20 @@ const FOUNDERS = [
     bio: "Francesca Obradovic is an award-winning marketer and product innovator. While sourcing for her own interior design projects, and studying the craft at RISD, she ran headfirst into the procurement mess every designer knows. She brings a decade of product experience across T-Mobile and startups, including T-Mobile's first AI-powered shopping experience, used by 20M+ shoppers.",
   },
   {
-    // Name and portrait intentionally withheld: this founder is still employed
-    // as a practising designer and is not publicly associated with Mink yet.
-    // Do not reintroduce her name, photo, or employer without her sign-off.
-    image: null,
-    name: null,
-    title: "Co-Founder & CCO",
-    bio: "Our CCO is a practicing interior designer at a leading Seattle firm. Over nearly a decade specifying residential and commercial interiors, and designing custom furniture piece by piece, she's lived the sourcing and procurement headaches Mink exists to solve. That fluency in how designers actually work shapes every decision behind the product.",
-  },
-  {
     image: "/founder-banzhef.jpg",
     name: "Caleb Banzhaf",
     title: "Co-Founder & CTO",
     bio: "Caleb Banzhaf is a full-stack engineer with 15+ years building AI-powered products and automated systems, from R&D in T-Mobile's innovation lab to founding his own ventures. He architected the technology behind Ora, Mink's AI procurement agent. Now building his own custom container home, he knows the sourcing problem firsthand, and his LLM and agentic depth is what lets Mink solve it.",
   },
 ];
+
+// Tribute to the 12 practicing designers of the Mink Customer Study. Portraits
+// are AI-generated stand-ins (the real designers are not publicly named), shown
+// as a cluster of small bubbles in the third team-grid cell.
+const STUDY_DESIGNER_PORTRAITS = Array.from(
+  { length: 12 },
+  (_, i) => `/designers/designer-${String(i + 1).padStart(2, "0")}.png`,
+);
 
 export default function AboutPage() {
   return (
@@ -250,6 +249,41 @@ export default function AboutPage() {
                 </p>
               </article>
             ))}
+
+            {/* Third cell: tribute to the Mink Customer Study designers. Mirrors
+                the founder card frame, but swaps the single portrait for a
+                cluster of 12 small bubbles. */}
+            <article className="flex flex-col items-center rounded-3xl border border-foreground/10 bg-muted/40 p-8 text-center">
+              <div className="grid w-36 grid-cols-4 gap-1.5">
+                {STUDY_DESIGNER_PORTRAITS.map((src, i) => (
+                  <span
+                    key={src}
+                    className="relative aspect-square overflow-hidden rounded-full bg-muted ring-1 ring-foreground/10"
+                  >
+                    <Image
+                      src={src || "/placeholder.svg"}
+                      alt={`One of the 12 interior designers from the Mink Customer Study, portrait ${i + 1}`}
+                      fill
+                      sizes="32px"
+                      className="object-cover"
+                    />
+                  </span>
+                ))}
+              </div>
+              <h3 className="mt-7 text-xl font-medium font-display">
+                The Mink Customer Study
+              </h3>
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                12 designers who shaped Mink
+              </p>
+              <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
+                Twelve practicing interior designers, from solo practitioners to
+                studio principals, opened up their real projects and workflows to
+                us. Their hard-won insight is stitched into every corner of the
+                product. Portraits are illustrative, in tribute to the
+                collaborators who made Mink possible.
+              </p>
+            </article>
           </div>
         </div>
 

@@ -138,26 +138,27 @@ export default function AboutPage() {
             </h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                &ldquo;When I moved into interior design, I fell for the craft
-                immediately, and just as fast I hit everything standing in its
-                way. A huge share of my time was not design at all. It was
-                sourcing, coordinating, admin, and endless back and forth.
+                &ldquo;I came to interior design and fell for the craft at once.
+                Just as quickly, I met everything standing in its way. Most of
+                my week had nothing to do with design. It went to sourcing,
+                coordinating, chasing quotes, and the endless back and forth in
+                between.
               </p>
               <p>
-                At first I assumed it was me, that a newer designer just hadn&apos;t
-                learned the trick yet. So I took the question to the best
-                interior designers I know, expecting to be shown what I was
-                missing. Instead, every one of them described the exact same
-                grind. This wasn&apos;t a rookie mistake. It was a real problem,
-                and no one had solved it.
+                I assumed the fault was mine, that experience would eventually
+                teach me the shortcut I&apos;d clearly missed. So I asked the
+                designers I admire most, certain they&apos;d reveal it. Not one
+                did. Each described the very same grind, in the very same words.
+                This was never a beginner&apos;s blind spot. It was a real
+                problem, hiding in plain sight, and no one had thought to fix it.
               </p>
               <p>
-                So we ran the Mink Customer Study to be sure: 12 practicing
-                designers, from solo practitioners to studio principals, walking
-                us through real projects. All 12 pointed at the same bottleneck.
-                We built for exactly what they told us, and we haven&apos;t
-                stopped listening since. mink is AI shaped by the people who live
-                this work.&rdquo;
+                So we set out to prove it. In the Mink Customer Study, twelve
+                practicing designers, from solo practitioners to studio
+                principals, walked us through their real projects. Every one of
+                them named the same bottleneck. We built for precisely what they
+                told us, and we have never stopped listening. mink is AI shaped
+                by the people who live this work.&rdquo;
               </p>
             </div>
             {/* Portrait sits beside the attribution so the quote has a face */}

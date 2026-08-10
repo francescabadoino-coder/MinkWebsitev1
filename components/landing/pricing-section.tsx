@@ -265,14 +265,13 @@ export function TrialBanner({
       <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
         {/* Left: identity + price + subscribe-to-continue note */}
         <div className="lg:max-w-sm">
-          <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-accent/15 px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-accent">
-            <Sparkles className="h-3 w-3" />
-            Free trial · no card
-          </span>
-          <div className="mt-4 flex items-baseline gap-3">
+          <div className="flex items-baseline gap-3">
             <h3 className="font-display text-3xl tracking-tight">{trialPlan.name}</h3>
             <span className="font-display text-2xl tracking-tight tabular-nums text-muted-foreground">
               $0
+            </span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              Free · no card
             </span>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty">

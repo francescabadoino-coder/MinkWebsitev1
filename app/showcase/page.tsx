@@ -25,20 +25,22 @@ export default function ShowcasePage() {
       <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground noise-overlay">
         <Navigation />
 
-        <div className="pt-28 lg:pt-32">
-          {/* Page hero — sets up the proof section that follows */}
-          <section className="relative overflow-hidden pt-10 pb-4 lg:pt-16">
+        <div className="pt-24 lg:pt-28">
+          {/* Page hero — proportioned to match the pricing/agents heroes:
+              same top rhythm below the nav and the bloom anchored into the top
+              corner rather than floating mid-section. */}
+          <section className="relative overflow-hidden pt-6 pb-4 lg:pt-10">
             {/* Same signature chartreuse bloom as the other pages, here
                 anchored top-right and interactive so it drifts with the
                 cursor — a variation on the treatment, not a copy. */}
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 h-[68vh]"
+              className="pointer-events-none absolute inset-x-0 top-0 h-[62vh]"
               style={{
                 WebkitMaskImage:
-                  "radial-gradient(90% 70% at 84% -6%, #000 24%, transparent 62%)",
+                  "radial-gradient(95% 75% at 82% -8%, #000 26%, transparent 64%)",
                 maskImage:
-                  "radial-gradient(90% 70% at 84% -6%, #000 24%, transparent 62%)",
+                  "radial-gradient(95% 75% at 82% -8%, #000 26%, transparent 64%)",
               }}
             >
               <AnimatedWaves interactive />
@@ -60,7 +62,19 @@ export default function ShowcasePage() {
 
           <ProductProofSection />
 
-          <PricingClosingCta />
+          <PricingClosingCta
+            headline={
+              <>
+                Your next project could be{" "}
+                <span className="relative inline-block font-serif italic pr-1">
+                  <span className="inline-flex">here</span>
+                  <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-foreground/25" />
+                </span>
+                .
+              </>
+            }
+            description="Start on a real room and let Ora source it, brief to purchase order. The work above was made this way."
+          />
         </div>
 
         <FooterSection />

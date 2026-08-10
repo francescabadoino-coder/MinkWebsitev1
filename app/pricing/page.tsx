@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
-import { PricingHero } from "@/components/landing/pricing/pricing-hero";
-import { ProductProofSection } from "@/components/landing/pricing/product-proof-section";
 import { PricingSavingsCalculator } from "@/components/landing/pricing/pricing-savings-calculator";
 import { PricingPlans } from "@/components/landing/pricing/pricing-plans";
 import { PricingFaq } from "@/components/landing/pricing/pricing-faq";
@@ -28,12 +26,13 @@ export default function PricingPage() {
       <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground noise-overlay">
         <Navigation />
 
-        <div className="pt-28 lg:pt-32">
-          <PricingHero />
-          <ProductProofSection />
+        <div className="pt-24 lg:pt-28">
+          {/* The procurement + sourcing cost calculator now leads the page as
+              the hero — it frames every plan below it in terms of the billable
+              time Ora reclaims. */}
           <PricingSavingsCalculator />
 
-          <div id="plan-details" className="scroll-mt-24 pt-16 lg:pt-24">
+          <div id="plan-details" className="scroll-mt-24 pt-8 lg:pt-12">
             <PricingPlans />
           </div>
           <PricingFaq />

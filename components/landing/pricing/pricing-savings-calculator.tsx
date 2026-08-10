@@ -43,18 +43,19 @@ export function PricingSavingsCalculator() {
   const animatedHours = useCountUp(reclaimedHours, { active: inView });
   const animatedMonthly = useCountUp(monthlyValue, { active: inView });
 
-  // Section rhythm, container width, and eyebrow match the home page
+  // Leads the pricing page as the hero, so the heading is the page h1 and the
+  // top padding is tightened to sit just below the fixed nav.
   return (
-    <section className="relative py-24 lg:py-32">
+    <section className="relative pt-6 pb-24 lg:pt-10 lg:pb-32">
       <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
         <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Savings calculator
+          Cost calculator
           <span className="h-px w-8 bg-foreground/30" />
         </span>
-        <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-balance lg:text-6xl">
-          What is procurement costing you?
-        </h2>
-        <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-muted-foreground text-pretty">
+        <h1 className="mt-5 max-w-[20ch] font-display text-4xl leading-[1.04] tracking-tight text-balance md:text-5xl lg:text-7xl">
+          What is procurement and sourcing costing you?
+        </h1>
+        <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-muted-foreground text-pretty lg:text-xl">
           Estimate the time and billable income you could reclaim by letting
           Ora handle the sourcing.
         </p>

@@ -8,6 +8,7 @@ import { useBetaAccess } from "./beta-access-provider";
 
 const navLinks = [
   { name: "Agents", href: "/agents" },
+  { name: "Showcase", href: "/showcase" },
   { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },

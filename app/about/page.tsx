@@ -196,9 +196,14 @@ export default function AboutPage() {
           </span>
           <p className="mt-6 max-w-4xl text-pretty font-display text-4xl leading-[1.1] tracking-tight lg:text-6xl">
             We envision a world where AI agents and humans live{" "}
-            <span className="font-serif italic">symbiotically.</span> Our agents
-            handle the tedious work so designers and vendors can focus on making
-            their clients happy.
+            <span className="relative inline-block font-serif italic">
+              symbiotically.
+              <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />
+            </span>
+            <span className="mt-8 block">
+              Our agents handle the tedious work so designers and vendors can
+              focus on making their clients happy.
+            </span>
           </p>
         </div>
       </section>

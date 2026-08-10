@@ -261,8 +261,8 @@ export function TrialBanner({
   const { open } = useBetaAccess();
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-foreground/[0.02] p-8 text-center lg:p-10">
-      <div className="mx-auto flex max-w-2xl flex-col items-center">
+    <div className="relative mx-auto max-w-3xl overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-foreground/[0.02] p-8 text-center lg:p-10">
+      <div className="mx-auto flex max-w-xl flex-col items-center">
         {/* Identity + price */}
         <div className="flex items-baseline justify-center gap-3">
           <h3 className="font-display text-3xl tracking-tight">{trialPlan.name}</h3>

@@ -40,7 +40,7 @@ export function AgentsHero() {
         >
           {/* Cooper is a display accent: emphasise one word, not a whole
               clause, or the wider serif overwhelms the Nourd headline. */}
-          Meet Ora, the AI agent that{" "}
+          Meet Ora, the interior design AI agent that{" "}
           <span className="font-serif italic text-foreground">actually</span>{" "}
           does the work.
         </h1>

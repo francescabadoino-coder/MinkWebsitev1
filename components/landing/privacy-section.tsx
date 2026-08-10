@@ -61,7 +61,7 @@ export function PrivacySection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Your data stays yours.{" "}
+            {"Your data stays yours. "}
             <span className="relative inline-block font-serif italic">
               Always.
               <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />

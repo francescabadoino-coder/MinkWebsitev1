@@ -62,11 +62,17 @@ export default function ShowcasePage() {
             </div>
           </section>
 
-          {/* Looping variety band — a quick, alive overview before the curated
-              interactive deep-dive below. Placeholder content for now. */}
-          <ShowcaseCarousel />
-
           <ProductProofSection />
+
+          {/* Divider line separating the proof section from the looping band. */}
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+            <div className="border-t border-foreground/10" />
+          </div>
+
+          {/* Looping variety band — a quick, alive overview of the breadth of
+              work, sitting between the proof section and the CTA. Placeholder
+              content for now. */}
+          <ShowcaseCarousel />
 
           {/* Social proof — renders only once SHOW_TESTIMONIALS is flipped on
               with real quotes; hidden today so we never ship fabricated ones. */}

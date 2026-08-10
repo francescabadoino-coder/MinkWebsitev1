@@ -5,52 +5,56 @@ import {
   type CarouselItem,
 } from "./showcase-carousel-items";
 
-/** Design cards are landscape room photography. */
-function DesignCard({ item }: { item: CarouselItem }) {
-  return (
-    <figure className="w-[300px] shrink-0 lg:w-[400px]">
-      <div className="relative aspect-[3/2] overflow-hidden rounded-2xl bg-muted shadow-sm">
-        <Image
-          src={item.src}
-          alt={item.alt}
-          fill
-          loading="lazy"
-          sizes="(min-width: 1024px) 400px, 300px"
-          className="object-cover"
-        />
-      </div>
-      <figcaption className="mt-3 flex items-baseline justify-between gap-3">
-        <span className="font-display text-lg tracking-tight text-foreground">
-          {item.label}
-        </span>
-        <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-          {item.meta}
-        </span>
-      </figcaption>
-    </figure>
-  );
+type Kind = "design" | "item";
+type Card = CarouselItem & { kind: Kind };
+
+/**
+ * Interleave designs and sourced items into one sequence so a single row reads
+ * as varied — room, product, room, product — rather than grouped.
+ */
+function buildSequence(): Card[] {
+  const designs: Card[] = CAROUSEL_DESIGNS.map((d) => ({ ...d, kind: "design" }));
+  const items: Card[] = CAROUSEL_ITEMS.map((i) => ({ ...i, kind: "item" }));
+  const out: Card[] = [];
+  const max = Math.max(designs.length, items.length);
+  for (let i = 0; i < max; i++) {
+    if (designs[i]) out.push(designs[i]);
+    if (items[i]) out.push(items[i]);
+  }
+  return out;
 }
 
-/** Item cards are silhouetted products on a light card surface. */
-function ItemCard({ item }: { item: CarouselItem }) {
+const SEQUENCE = buildSequence();
+
+/**
+ * A single card. Every card shares the same height; landscape room designs are
+ * wider and silhouetted items are square, so widths vary naturally and the row
+ * feels editorial rather than uniform.
+ */
+function ShowcaseCard({ card }: { card: Card }) {
+  const isDesign = card.kind === "design";
   return (
-    <figure className="w-[220px] shrink-0 lg:w-[260px]">
-      <div className="relative aspect-square overflow-hidden rounded-2xl bg-card p-6 shadow-sm">
+    <figure className="shrink-0">
+      <div
+        className={`relative h-52 overflow-hidden rounded-2xl shadow-sm lg:h-64 ${
+          isDesign ? "aspect-[3/2] bg-muted" : "aspect-square bg-card"
+        }`}
+      >
         <Image
-          src={item.src}
-          alt={item.alt}
+          src={card.src}
+          alt={card.alt}
           fill
           loading="lazy"
-          sizes="(min-width: 1024px) 260px, 220px"
-          className="object-contain p-6"
+          sizes={isDesign ? "384px" : "256px"}
+          className={isDesign ? "object-cover" : "object-contain p-6"}
         />
       </div>
       <figcaption className="mt-3 flex items-baseline justify-between gap-3">
-        <span className="font-display text-base tracking-tight text-foreground">
-          {item.label}
+        <span className="font-display text-base tracking-tight text-foreground lg:text-lg">
+          {card.label}
         </span>
         <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-          {item.meta}
+          {card.meta}
         </span>
       </figcaption>
     </figure>
@@ -58,12 +62,11 @@ function ItemCard({ item }: { item: CarouselItem }) {
 }
 
 /**
- * A continuously looping, two-row showcase carousel. The top row of room
- * designs drifts left and the bottom row of sourced items drifts right, so the
- * band always reads as alive. Each row duplicates its content twice because the
- * shared `.marquee` keyframes translate the track by -50%, making the seam
- * invisible. Hovering a row pauses it. Content is placeholder (see
- * `showcase-carousel-items.ts`).
+ * A single continuously looping row mixing room designs and sourced items. The
+ * track duplicates its content twice because the shared `.marquee` keyframes
+ * translate by -50%, making the loop seam invisible. Hovering pauses it, and
+ * the animation is disabled under prefers-reduced-motion (see globals.css).
+ * Content is placeholder (see `showcase-carousel-items.ts`).
  */
 export function ShowcaseCarousel() {
   return (
@@ -84,43 +87,21 @@ export function ShowcaseCarousel() {
         </h2>
       </div>
 
-      <div className="mt-12 flex flex-col gap-8 lg:mt-16 lg:gap-10">
-        {/* Row 1 — designs, drifting left */}
-        <div className="group relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent lg:w-32" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent lg:w-32" />
-          <div className="marquee flex w-max gap-6 group-hover:[animation-play-state:paused] lg:gap-8">
-            {[0, 1].map((copy) => (
-              <div
-                key={copy}
-                className="flex gap-6 lg:gap-8"
-                aria-hidden={copy === 1}
-              >
-                {CAROUSEL_DESIGNS.map((item) => (
-                  <DesignCard key={`${item.label}-${copy}`} item={item} />
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2 — sourced items, drifting right */}
-        <div className="group relative">
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent lg:w-32" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent lg:w-32" />
-          <div className="marquee-reverse flex w-max gap-6 group-hover:[animation-play-state:paused] lg:gap-8">
-            {[0, 1].map((copy) => (
-              <div
-                key={copy}
-                className="flex gap-6 lg:gap-8"
-                aria-hidden={copy === 1}
-              >
-                {CAROUSEL_ITEMS.map((item) => (
-                  <ItemCard key={`${item.label}-${copy}`} item={item} />
-                ))}
-              </div>
-            ))}
-          </div>
+      <div className="group relative mt-12 lg:mt-16">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent lg:w-32" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent lg:w-32" />
+        <div className="marquee flex w-max gap-6 group-hover:[animation-play-state:paused] lg:gap-8">
+          {[0, 1].map((copy) => (
+            <div
+              key={copy}
+              className="flex gap-6 lg:gap-8"
+              aria-hidden={copy === 1}
+            >
+              {SEQUENCE.map((card) => (
+                <ShowcaseCard key={`${card.label}-${copy}`} card={card} />
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

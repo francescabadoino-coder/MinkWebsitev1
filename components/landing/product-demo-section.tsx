@@ -218,7 +218,7 @@ export function ProductDemoSection() {
                       key={tab.label}
                       className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium ${
                         tab.active
-                          ? "bg-accent text-accent-foreground"
+                          ? "bg-accent/20 text-accent"
                           : "text-background/60"
                       }`}
                     >

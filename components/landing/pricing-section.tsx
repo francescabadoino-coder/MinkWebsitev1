@@ -261,51 +261,49 @@ export function TrialBanner({
   const { open } = useBetaAccess();
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-foreground/[0.02] p-8 lg:p-10">
-      <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-        {/* Left: identity + price + subscribe-to-continue note */}
-        <div className="lg:max-w-sm">
-          <div className="flex items-baseline gap-3">
-            <h3 className="font-display text-3xl tracking-tight">{trialPlan.name}</h3>
-            <span className="font-display text-2xl tracking-tight tabular-nums text-muted-foreground">
-              $0
-            </span>
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-              Free · no card
-            </span>
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground text-pretty">
-            {trialPlan.description}
-          </p>
-          <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-            Once you&apos;ve used your 15 visualizations, subscribe to Slate,
-            Pro, or Studio to keep generating.
-            {showFootnotes && <Fn n={2} />}
-          </p>
+    <div className="relative overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-foreground/[0.02] p-8 text-center lg:p-10">
+      <div className="mx-auto flex max-w-2xl flex-col items-center">
+        {/* Identity + price */}
+        <div className="flex items-baseline justify-center gap-3">
+          <h3 className="font-display text-3xl tracking-tight">{trialPlan.name}</h3>
+          <span className="font-display text-2xl tracking-tight tabular-nums text-muted-foreground">
+            $0
+          </span>
+          <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+            Free · no card
+          </span>
         </div>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground text-pretty">
+          {trialPlan.description}
+        </p>
 
-        {/* Right: what's included + CTA */}
-        <div className="lg:flex-1 lg:pl-6">
-          <ul className="flex flex-col gap-3">
-            {trialPlan.features.map((feature) => (
-              <li key={feature} className="flex items-start gap-2.5">
-                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
-                  <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
-                </span>
-                <span className="text-sm leading-snug text-muted-foreground">
-                  {feature}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <button
-            onClick={() => open()}
-            className="group/cta mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-cta py-3.5 text-sm font-medium text-cta-foreground transition-all hover:bg-cta/90 sm:w-auto sm:px-8"
-          >
-            {trialPlan.cta}
-            <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
-          </button>
-        </div>
+        {/* What's included */}
+        <ul className="mt-6 inline-flex flex-col gap-3 text-left">
+          {trialPlan.features.map((feature) => (
+            <li key={feature} className="flex items-start gap-2.5">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
+              </span>
+              <span className="text-sm leading-snug text-muted-foreground">
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <button
+          onClick={() => open()}
+          className="group/cta mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-3.5 text-sm font-medium text-cta-foreground transition-all hover:bg-cta/90"
+        >
+          {trialPlan.cta}
+          <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+        </button>
+
+        <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+          Once you&apos;ve used your 15 visualizations, subscribe to Slate, Pro,
+          or Studio to keep generating.
+          {showFootnotes && <Fn n={2} />}
+        </p>
       </div>
     </div>
   );

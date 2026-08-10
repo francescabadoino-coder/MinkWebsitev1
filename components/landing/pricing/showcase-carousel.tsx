@@ -76,15 +76,19 @@ export function ShowcaseCarousel() {
     >
       <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
         <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          In the wild
+          The feed
           <span className="h-px w-8 bg-foreground/30" />
         </span>
         <h2
           id="showcase-carousel-heading"
           className="mt-5 max-w-2xl font-display text-3xl tracking-tight text-balance lg:text-5xl"
         >
-          A rolling look at rooms designed and pieces sourced.
+          Designed on Mink. Sourced by Ora.
         </h2>
+        <p className="mt-5 max-w-[52ch] text-lg leading-relaxed text-muted-foreground text-pretty">
+          A steady stream of finished rooms and the trade pieces behind them —
+          the range Ora specifies, project after project.
+        </p>
       </div>
 
       <div className="group relative mt-12 lg:mt-16">

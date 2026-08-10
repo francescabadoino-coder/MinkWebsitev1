@@ -286,7 +286,7 @@ export function TrialBanner({
 
         {/* Right: what's included + CTA */}
         <div className="lg:flex-1 lg:pl-6">
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="flex flex-col gap-3">
             {trialPlan.features.map((feature) => (
               <li key={feature} className="flex items-start gap-2.5">
                 <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">

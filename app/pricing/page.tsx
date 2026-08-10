@@ -12,12 +12,12 @@ import { PricingClosingCta } from "@/components/landing/pricing/pricing-closing-
 export const metadata: Metadata = {
   title: "Pricing — Mink, the AI procurement platform for interior designers",
   description:
-    "Start free, no credit card required. Compare Starter, Pro, and Studio plans and pick the one that fits how you work. Cancel any time.",
+    "Start free, no credit card required. Compare Slate, Pro, and Studio plans and pick the one that fits how you work. Cancel any time.",
   alternates: { canonical: "/pricing" },
   openGraph: {
     title: "Pricing that pays for itself — Mink",
     description:
-      "Start free, no credit card required. Compare Starter, Pro, and Studio plans and pick the one that fits how you work.",
+      "Start free, no credit card required. Compare Slate, Pro, and Studio plans and pick the one that fits how you work.",
     url: "/pricing",
   },
 };

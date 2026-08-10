@@ -2,55 +2,55 @@
 
 import { useState } from "react";
 import { Check, Minus } from "lucide-react";
-import { plans, PlanCard } from "@/components/landing/pricing-section";
+import { plans, PlanCard, TrialBanner } from "@/components/landing/pricing-section";
 import { Fn, PricingFootnotes } from "./pricing-footnotes";
 
 type Cell = boolean | string;
 
 const planMeta = {
-  starter: plans[0],
+  slate: plans[0],
   pro: plans[1],
   studio: plans[2],
 };
 
 const COMPARISON: {
   label: string;
-  starter: Cell;
+  slate: Cell;
   pro: Cell;
   studio: Cell;
   /** Footnote qualifying this claim. */
   fn?: number;
 }[] = [
-  { label: "Designers included", starter: "1", pro: "1", studio: "1" },
+  { label: "Designers included", slate: "1", pro: "1", studio: "1" },
   {
     label: "2D visualizations / month",
-    starter: "50",
+    slate: "100",
     pro: "500",
     studio: "1,000",
     fn: 2,
   },
-  { label: "Ora design-brief analysis", starter: true, pro: true, studio: true },
-  { label: "Product recommendations (vetted brands)", starter: true, pro: true, studio: true },
-  { label: "Transparent reasoning on every pick", starter: true, pro: true, studio: true },
-  { label: "Ora agentic procurement, end to end", starter: false, pro: true, studio: true },
+  { label: "Ora design-brief analysis", slate: true, pro: true, studio: true },
+  { label: "Product recommendations (vetted brands)", slate: true, pro: true, studio: true },
+  { label: "Transparent reasoning on every pick", slate: true, pro: true, studio: true },
   {
     label: "Trade vendor access & pricing requests",
-    starter: false,
+    slate: true,
     pro: true,
     studio: true,
     fn: 3,
   },
-  { label: "AI-drafted vendor & client emails", starter: false, pro: true, studio: true },
-  { label: "One-click spec, invoice & visual exports", starter: false, pro: true, studio: true },
+  { label: "Ora agentic procurement, end to end", slate: false, pro: true, studio: true },
+  { label: "AI-drafted vendor & client emails", slate: false, pro: true, studio: true },
+  { label: "One-click spec, invoice & visual exports", slate: false, pro: true, studio: true },
   {
     label: "Order & delivery tracking, all in one place",
-    starter: false,
+    slate: false,
     pro: true,
     studio: "priority",
     fn: 4,
   },
-  { label: "Live support", starter: false, pro: false, studio: true },
-  { label: "Early access to new features & products", starter: false, pro: false, studio: true },
+  { label: "Live support", slate: false, pro: false, studio: true },
+  { label: "Early access to new features & products", slate: false, pro: false, studio: true },
 ];
 
 function CellValue({ value }: { value: Cell }) {
@@ -177,7 +177,7 @@ export function PricingPlans() {
                     </span>
                   </th>
                   <th className="px-4 py-4 text-center align-bottom">
-                    <span className="font-display text-lg tracking-tight">Starter</span>
+                    <span className="font-display text-lg tracking-tight">Slate</span>
                   </th>
                   <th className="px-4 pb-4 text-center align-bottom">
                     <div className="rounded-t-2xl bg-foreground px-4 pb-4 pt-5 text-background">
@@ -196,7 +196,7 @@ export function PricingPlans() {
                 {/* Price row */}
                 <tr className="border-t border-foreground/10">
                   <td className="py-5 text-base font-medium text-foreground">Price</td>
-                  {(["starter", "pro", "studio"] as const).map((key) => {
+                  {(["slate", "pro", "studio"] as const).map((key) => {
                     const { price, suffix } = priceLabel(key, isAnnual);
                     return (
                       <td
@@ -222,7 +222,7 @@ export function PricingPlans() {
                       {row.fn && <Fn n={row.fn} />}
                     </td>
                     <td className="px-4 py-4 text-center">
-                      <CellValue value={row.starter} />
+                      <CellValue value={row.slate} />
                     </td>
                     <td
                       className={`px-4 py-4 text-center bg-foreground/[0.03] ${
@@ -242,7 +242,7 @@ export function PricingPlans() {
 
           {/* Mobile stacked */}
           <div className="mt-10 space-y-6 md:hidden">
-            {(["starter", "pro", "studio"] as const).map((key) => {
+            {(["slate", "pro", "studio"] as const).map((key) => {
               const { price, suffix } = priceLabel(key, isAnnual);
               return (
                 <div
@@ -283,6 +283,11 @@ export function PricingPlans() {
               );
             })}
           </div>
+        </div>
+
+        {/* Free trial, positioned below the paid cards and comparison table */}
+        <div className="mt-16 lg:mt-20">
+          <TrialBanner showFootnotes />
         </div>
       </div>
 

@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 
-/** Paid-plan context for the renewal disclosure. Starter passes nothing. */
+/** Paid-plan context for the renewal disclosure. The free Trial passes nothing. */
 export type CheckoutPlan = {
   name: string;
   monthlyPrice: number;
@@ -67,9 +67,10 @@ function RenewalDisclosure({ plan }: { plan: CheckoutPlan }) {
       </p>
 
       <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
-        {plan.name} includes a free trial. When the trial ends you will be
-        charged {money(billedAmount)} per {period} unless you cancel before
-        then. We send a reminder first.
+        Prefer to try first? The free Trial includes 15 visualizations with no
+        card required. When you subscribe to {plan.name}, billing begins at{" "}
+        {money(billedAmount)} per {period}. We send a reminder before any first
+        charge.
       </p>
 
       {/* Order summary: tax appears as its own line item before the total. */}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
+import { AnimatedWaves } from "@/components/landing/animated-waves";
 import { ProductProofSection } from "@/components/landing/pricing/product-proof-section";
 import { PricingClosingCta } from "@/components/landing/pricing/pricing-closing-cta";
 
@@ -27,10 +28,21 @@ export default function ShowcasePage() {
         <div className="pt-28 lg:pt-32">
           {/* Page hero — sets up the proof section that follows */}
           <section className="relative overflow-hidden pt-10 pb-4 lg:pt-16">
+            {/* Same signature chartreuse bloom as the other pages, here
+                anchored top-right and interactive so it drifts with the
+                cursor — a variation on the treatment, not a copy. */}
             <div
               aria-hidden
-              className="pointer-events-none absolute -left-[20%] top-[30%] h-[36vh] w-[140%] -rotate-6 bg-gradient-to-r from-accent/20 via-accent/45 to-accent/15 opacity-40 blur-3xl md:opacity-60"
-            />
+              className="pointer-events-none absolute inset-x-0 top-0 h-[68vh]"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(90% 70% at 84% -6%, #000 24%, transparent 62%)",
+                maskImage:
+                  "radial-gradient(90% 70% at 84% -6%, #000 24%, transparent 62%)",
+              }}
+            >
+              <AnimatedWaves interactive />
+            </div>
             <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-12">
               <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 Showcase

@@ -23,7 +23,16 @@ type Ribbon = {
  * fluid morph. Rendered on a canvas with additive blending and heavy blur so
  * the colors melt together like flowing light.
  */
-export function AnimatedWaves() {
+export function AnimatedWaves({
+  /**
+   * When true, the bloom gently drifts toward the pointer for a live, tactile
+   * feel. Left off (the default) the ribbons only do their slow autonomous
+   * morph, so existing heroes are unchanged.
+   */
+  interactive = false,
+}: {
+  interactive?: boolean;
+} = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameRef = useRef(0);
 
@@ -53,6 +62,19 @@ export function AnimatedWaves() {
 
     resize();
     window.addEventListener("resize", resize);
+
+    // Pointer-driven drift for the interactive variant. The normalised target
+    // (0..1 across the viewport) is eased toward each frame so the bloom
+    // follows the cursor with a soft, weighty lag rather than snapping.
+    const pointer = { x: 0.5, y: 0.5 };
+    const pointerTarget = { x: 0.5, y: 0.5 };
+    const onPointerMove = (e: PointerEvent) => {
+      pointerTarget.x = e.clientX / window.innerWidth;
+      pointerTarget.y = e.clientY / window.innerHeight;
+    };
+    if (interactive && !prefersReduced) {
+      window.addEventListener("pointermove", onPointerMove);
+    }
 
     // Mink brand palette: a soft chartreuse bloom. Every ramp is built from
     // Dancing (#CFDC66) — a lighter tint, the true brand value, then a
@@ -102,19 +124,21 @@ export function AnimatedWaves() {
       },
     ];
 
-    const drawRibbon = (r: Ribbon, t: number) => {
+    const drawRibbon = (r: Ribbon, t: number, ox: number, oy: number) => {
       const sway = Math.sin(t * r.speed + r.phase) * r.sway;
       const sway2 = Math.cos(t * r.speed * 0.8 + r.phase) * r.sway * 0.6;
 
       // The ribbon fans diagonally from the left edge to the right edge.
-      const leftY = (r.startY + sway) * height;
-      const rightY = (r.endY + sway2) * height;
+      // `oy`/`ox` are the eased pointer offsets (interactive mode); they nudge
+      // the anchors so the whole bloom leans toward the cursor.
+      const leftY = (r.startY + sway) * height + oy * height * 0.22;
+      const rightY = (r.endY + sway2) * height + oy * height * 0.14;
       const thick = r.thickness * height;
 
       // Control points create the silky curved fan.
-      const cp1x = width * 0.35;
+      const cp1x = width * 0.35 + ox * width * 0.14;
       const cp1y = leftY + (rightY - leftY) * 0.1 + Math.sin(t * r.speed + r.phase) * 110;
-      const cp2x = width * 0.7;
+      const cp2x = width * 0.7 + ox * width * 0.14;
       const cp2y = leftY + (rightY - leftY) * 0.85 + Math.cos(t * r.speed * 1.3 + r.phase) * 110;
 
       ctx.beginPath();
@@ -144,9 +168,14 @@ export function AnimatedWaves() {
 
     const render = () => {
       ctx.clearRect(0, 0, width, height);
+      // Ease the eased pointer toward its target for the soft follow.
+      pointer.x += (pointerTarget.x - pointer.x) * 0.05;
+      pointer.y += (pointerTarget.y - pointer.y) * 0.05;
+      const ox = interactive ? pointer.x - 0.5 : 0;
+      const oy = interactive ? pointer.y - 0.5 : 0;
       // Additive-style blending lets the ribbons blend into luminous hues.
       ctx.globalCompositeOperation = "multiply";
-      ribbons.forEach((r) => drawRibbon(r, time));
+      ribbons.forEach((r) => drawRibbon(r, time, ox, oy));
       ctx.globalCompositeOperation = "source-over";
       time += prefersReduced ? 0 : 0.025;
       frameRef.current = requestAnimationFrame(render);
@@ -156,9 +185,10 @@ export function AnimatedWaves() {
 
     return () => {
       window.removeEventListener("resize", resize);
+      window.removeEventListener("pointermove", onPointerMove);
       cancelAnimationFrame(frameRef.current);
     };
-  }, []);
+  }, [interactive]);
 
   return (
     <div className="relative w-full h-full overflow-hidden">

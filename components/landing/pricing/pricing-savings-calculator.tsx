@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { useCountUp, useInViewOnce } from "@/hooks/use-count-up";
+import { AnimatedWaves } from "@/components/landing/animated-waves";
 import { INDUSTRY_SOURCE_PLACEHOLDER } from "./pricing-footnote-data";
 
 const WEEKS_PER_YEAR = 52;
@@ -46,8 +47,23 @@ export function PricingSavingsCalculator() {
   // Leads the pricing page as the hero, so the heading is the page h1 and the
   // top padding is tightened to sit just below the fixed nav.
   return (
-    <section className="relative pt-6 pb-24 lg:pt-10 lg:pb-32">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+    <section className="relative overflow-hidden pt-6 pb-24 lg:pt-10 lg:pb-32">
+      {/* Signature chartreuse bloom — anchored top-left here (vs. top-right on
+          the home hero) and interactive, so it drifts toward the cursor. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[62vh]"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(95% 75% at 18% -8%, #000 26%, transparent 64%)",
+          maskImage:
+            "radial-gradient(95% 75% at 18% -8%, #000 26%, transparent 64%)",
+        }}
+      >
+        <AnimatedWaves interactive />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-12">
         <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
           Cost calculator
           <span className="h-px w-8 bg-foreground/30" />

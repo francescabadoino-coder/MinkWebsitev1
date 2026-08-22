@@ -7,7 +7,7 @@ const principles = [
   {
     Icon: EyeOff,
     title: "We never sell your data",
-    description: "Your renders, floorplans, and selections are never sold or shared with third parties.",
+    description: "Your renders, floorplans, and selections are never sold to third parties.",
     statusLabel: "Data sales",
     statusValue: "Never",
   },
@@ -21,7 +21,7 @@ const principles = [
   {
     Icon: Lock,
     title: "Encrypted by default",
-    description: "Projects are encrypted in transit and at rest, never shared across accounts.",
+    description: "Projects are encrypted in transit and at rest, and isolated to your account.",
     statusLabel: "Encryption",
     statusValue: "AES-256",
   },

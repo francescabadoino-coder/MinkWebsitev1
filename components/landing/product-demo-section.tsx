@@ -38,7 +38,7 @@ const RECOMMENDATIONS: Recommendation[] = [
 const REFERENCE_IMAGES = ["/demo/living-room-2.png"];
 
 const PROJECT_PROMPT = "The Birchwell living room";
-const SOFA_PROMPT = "Find me the best modern sofa";
+const SOFA_PROMPT = "Find me sofas that match the inspo picture";
 
 // Top-nav tabs that mirror the real app chrome.
 const NAV_TABS = [

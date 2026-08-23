@@ -76,18 +76,18 @@ export function AnimatedWaves({
       window.addEventListener("pointermove", onPointerMove);
     }
 
-    // Mink brand palette: a soft chartreuse bloom. Every ramp is built from
-    // Dancing (#CFDC66) — a lighter tint, the true brand value, then a
-    // deeper shade — so the signature colour is always the anchor rather
-    // than an approximation that drifts around it.
-    const DANCING = "#cfdc66";
+    // Mink brand palette: a soft greyscale bloom. Mink carries no second
+    // hue, so every ramp is built from Midnight (#232323) stepped up
+    // through neutral greys. Alphas stay low so the ribbons read as a
+    // gentle tonal haze over Day rather than a grey smear.
+    const MIDNIGHT = "#232323";
     const ribbons: Ribbon[] = [
       {
         startY: -0.15,
         endY: 0.55,
         thickness: 0.5,
-        colors: ["#e4ebab", DANCING, "#b3c95c"],
-        alpha: 0.55,
+        colors: ["#c9c9c8", "#8f8f8e", MIDNIGHT],
+        alpha: 0.3,
         phase: 0,
         speed: 0.42,
         sway: 0.2,
@@ -96,8 +96,8 @@ export function AnimatedWaves({
         startY: -0.05,
         endY: 0.4,
         thickness: 0.42,
-        colors: ["#eef2cb", DANCING, "#bcd06a"],
-        alpha: 0.5,
+        colors: ["#d8d8d7", "#a2a2a1", MIDNIGHT],
+        alpha: 0.26,
         phase: 1.6,
         speed: 0.55,
         sway: 0.24,
@@ -106,8 +106,8 @@ export function AnimatedWaves({
         startY: 0.1,
         endY: 0.7,
         thickness: 0.55,
-        colors: ["#d9e389", DANCING, "#a9bf55"],
-        alpha: 0.45,
+        colors: ["#bfbfbe", "#7d7d7c", MIDNIGHT],
+        alpha: 0.24,
         phase: 3.1,
         speed: 0.36,
         sway: 0.28,
@@ -116,8 +116,8 @@ export function AnimatedWaves({
         startY: -0.2,
         endY: 0.5,
         thickness: 0.38,
-        colors: ["#f2f5db", DANCING, "#c3d472"],
-        alpha: 0.42,
+        colors: ["#e2e2e1", "#b0b0af", MIDNIGHT],
+        alpha: 0.22,
         phase: 4.4,
         speed: 0.5,
         sway: 0.18,

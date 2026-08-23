@@ -35,9 +35,10 @@ type Colorway = "midnight" | "dancing" | "day";
 const WORDMARK: Record<Colorway, string> = {
   midnight: "/brand/tight/wordmark-midnight.png",
   dancing: "/brand/tight/wordmark-dancing.png",
-  // There is no Day wordmark in the asset set; the Dancing wordmark is the
-  // correct mark for dark grounds, so fall back to it rather than tinting.
-  day: "/brand/tight/wordmark-dancing.png",
+  // There is no Day wordmark in the asset set. Mink is a greyscale brand,
+  // so dark grounds get the Midnight artwork knocked out to white rather
+  // than the chartreuse wordmark, which would read as a yellow accent.
+  day: "/brand/tight/wordmark-midnight.png",
 };
 
 const MARK: Record<Colorway, string> = {
@@ -76,7 +77,12 @@ export function MinkWordmark({
       width={215}
       height={70}
       priority={priority}
-      className={cn("h-7 w-auto object-contain", className)}
+      className={cn(
+        "h-7 w-auto object-contain",
+        // Knock the Midnight artwork out to white for dark grounds.
+        colorway === "day" && "brightness-0 invert",
+        className,
+      )}
     />
   );
 }

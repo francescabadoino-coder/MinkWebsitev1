@@ -27,11 +27,11 @@ export default function ShowcasePage() {
       <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground noise-overlay">
         <Navigation />
 
-        <div className="pt-24 lg:pt-28">
-          {/* Page hero — proportioned to match the pricing/agents heroes:
-              same top rhythm below the nav and the bloom anchored into the top
-              corner rather than floating mid-section. */}
-          <section className="relative overflow-hidden pt-6 pb-4 lg:pt-10">
+        <div>
+          {/* Page hero — proportioned to match the home/agents/pricing heroes:
+              the same pt-44 lg:pt-56 top rhythm below the fixed nav so the
+              header breathes, with the bloom anchored into the top corner. */}
+          <section className="relative overflow-hidden pt-44 pb-4 lg:pt-56">
             {/* Same signature chartreuse bloom as the other pages, here
                 anchored top-right and interactive so it drifts with the
                 cursor — a variation on the treatment, not a copy. */}

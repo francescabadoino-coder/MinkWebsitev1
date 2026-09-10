@@ -272,9 +272,13 @@ export default function AboutPage() {
                 We&apos;re hiring
               </p>
               <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-                Designers, engineers, and builders who care about the craft of
-                interior design: we&apos;d love to hear from you. Reach out and
-                tell us how you&apos;d help shape Mink.
+                We&apos;re a small team building the tools we wish every
+                independent interior designer had. If you&apos;re an engineer, a
+                designer, or someone who knows the trade inside and out,
+                we&apos;d love to hear from you. We care about good craft,
+                honesty, and giving designers back their time for the creative
+                work they love. Reach out and tell us what you&apos;d build,
+                what you&apos;d improve, and how you&apos;d help us shape Mink.
               </p>
             </Link>
           </div>

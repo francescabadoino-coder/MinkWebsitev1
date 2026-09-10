@@ -26,10 +26,11 @@ export default function PricingPage() {
       <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground noise-overlay">
         <Navigation />
 
-        <div className="pt-24 lg:pt-28">
+        <div>
           {/* The procurement + sourcing cost calculator now leads the page as
               the hero — it frames every plan below it in terms of the billable
-              time Ora reclaims. */}
+              time Ora reclaims. It carries the same top padding as the home and
+              agents heroes so the header breathes below the fixed nav. */}
           <PricingSavingsCalculator />
 
           <div id="plan-details" className="scroll-mt-24 pt-8 lg:pt-12">

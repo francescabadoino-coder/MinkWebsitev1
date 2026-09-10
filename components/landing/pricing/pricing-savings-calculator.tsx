@@ -45,9 +45,10 @@ export function PricingSavingsCalculator() {
   const animatedMonthly = useCountUp(monthlyValue, { active: inView });
 
   // Leads the pricing page as the hero, so the heading is the page h1 and the
-  // top padding is tightened to sit just below the fixed nav.
+  // top padding matches the home and agents heroes (pt-44 lg:pt-56) so the
+  // header sits with the same airy space below the fixed nav.
   return (
-    <section className="relative overflow-hidden pt-6 pb-24 lg:pt-10 lg:pb-32">
+    <section className="relative overflow-hidden pt-44 pb-24 lg:pt-56 lg:pb-32">
       {/* Signature chartreuse bloom — anchored top-left here (vs. top-right on
           the home hero) and interactive, so it drifts toward the cursor. */}
       <div

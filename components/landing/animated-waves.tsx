@@ -76,17 +76,16 @@ export function AnimatedWaves({
       window.addEventListener("pointermove", onPointerMove);
     }
 
-    // Mink brand palette: a soft chartreuse bloom. Every ramp is built from
-    // Dancing (#CFDC66) — a lighter tint, the true brand value, then a
-    // deeper shade — so the signature colour is always the anchor rather
-    // than an approximation that drifts around it.
+    // Mink brand palette: the moving bloom is pure Dancing (#CFDC66). Every
+    // ribbon uses the exact brand value at all three gradient stops — depth
+    // comes from opacity and overlap, never from tinting the hue away.
     const DANCING = "#cfdc66";
     const ribbons: Ribbon[] = [
       {
         startY: -0.15,
         endY: 0.55,
         thickness: 0.5,
-        colors: ["#e4ebab", DANCING, "#b3c95c"],
+        colors: [DANCING, DANCING, DANCING],
         alpha: 0.55,
         phase: 0,
         speed: 0.42,
@@ -96,7 +95,7 @@ export function AnimatedWaves({
         startY: -0.05,
         endY: 0.4,
         thickness: 0.42,
-        colors: ["#eef2cb", DANCING, "#bcd06a"],
+        colors: [DANCING, DANCING, DANCING],
         alpha: 0.5,
         phase: 1.6,
         speed: 0.55,
@@ -106,7 +105,7 @@ export function AnimatedWaves({
         startY: 0.1,
         endY: 0.7,
         thickness: 0.55,
-        colors: ["#d9e389", DANCING, "#a9bf55"],
+        colors: [DANCING, DANCING, DANCING],
         alpha: 0.45,
         phase: 3.1,
         speed: 0.36,
@@ -116,7 +115,7 @@ export function AnimatedWaves({
         startY: -0.2,
         endY: 0.5,
         thickness: 0.38,
-        colors: ["#f2f5db", DANCING, "#c3d472"],
+        colors: [DANCING, DANCING, DANCING],
         alpha: 0.42,
         phase: 4.4,
         speed: 0.5,

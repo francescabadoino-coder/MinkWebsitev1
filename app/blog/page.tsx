@@ -61,11 +61,7 @@ export default function BlogPage() {
 
         {/* Header */}
         <header className="mx-auto max-w-[1200px] px-6 pt-40 pb-14 lg:px-12">
-          <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            The Mink Blog
-            <span className="h-px w-8 bg-foreground/30" />
-          </span>
-          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-balance lg:text-7xl">
+          <h1 className="max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-balance lg:text-7xl">
             Sourcing, AI, and the business of design.
           </h1>
           <p className="mt-6 max-w-2xl text-pretty text-xl leading-relaxed text-muted-foreground">

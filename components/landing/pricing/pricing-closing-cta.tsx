@@ -59,10 +59,11 @@ export function PricingClosingCta({
           {headline ?? (
             <>
               Start free. Upgrade when it{" "}
-              {/* Copy stays #232323; the underline bar carries the emphasis */}
+              {/* Copy stays Midnight; the signature Dancing underline bar carries
+                  the emphasis, matching the hero/CTA/about treatment site-wide. */}
               <span className="relative inline-block font-serif italic pr-1">
                 <span className="inline-flex">pays off</span>
-                <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-foreground/25" />
+                <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-accent" />
               </span>
               .
             </>

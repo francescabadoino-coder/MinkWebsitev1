@@ -92,10 +92,11 @@ export function PricingPlans() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-5xl tracking-tight text-balance lg:text-7xl">
             Pricing that pays for{" "}
-            {/* Copy stays #232323; the underline bar carries the emphasis */}
+            {/* Copy stays Midnight; the signature Dancing underline bar carries
+                the emphasis, matching the hero/CTA/about treatment site-wide. */}
             <span className="relative inline-block font-serif italic pr-1">
               <span className="inline-flex">itself</span>
-              <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-foreground/25" />
+              <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-accent" />
             </span>
             .
             <Fn n={5} primary />

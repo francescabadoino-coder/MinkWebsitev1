@@ -93,7 +93,10 @@ export default function AboutPage() {
             <p className="text-pretty font-display text-4xl leading-[1.1] tracking-tight lg:text-6xl">
               To empower interior designers around the world to do what they do
               best,{" "}
-              <span className="font-bold underline underline-offset-4">
+              {/* Quiet serif-italic emphasis, matching the agents mission line
+                  and the rest of the multi-word editorial accents. A pill bar
+                  is only for single-line headline words; this phrase wraps. */}
+              <span className="font-serif italic underline underline-offset-4 decoration-foreground/30">
                 design beautiful spaces.
               </span>
             </p>

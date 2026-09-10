@@ -41,7 +41,7 @@ function ProductRow({
               className="flex h-full w-full items-center justify-center"
               aria-hidden
             >
-              <span className="px-4 text-center text-xs text-neutral-500">
+              <span className="px-4 text-center text-xs text-muted-foreground">
                 Image pending
               </span>
             </div>

@@ -49,7 +49,12 @@ export default function ShowcasePage() {
             <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-44 pb-8 text-center lg:px-12 lg:pt-56 lg:pb-10">
               <h1 className="mb-8 font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-tight text-balance">
                 The work designers{" "}
-                <span className="font-serif italic text-foreground">ship</span>{" "}
+                {/* Signature headline emphasis: serif italic + Dancing pill,
+                    matching the home and agents heroes. */}
+                <span className="relative inline-block font-serif italic pr-1 text-foreground">
+                  <span className="inline-flex">ship</span>
+                  <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-accent" />
+                </span>{" "}
                 with Mink.
               </h1>
               <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground text-pretty lg:text-2xl">

@@ -285,23 +285,6 @@ export default function AboutPage() {
       {/* SECTION 4 — What We are Building (interactive agent roadmap) */}
       <AgentsRoadmapSection />
 
-      <section className="pb-16 lg:pb-20">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-foreground">
-              Where we are today:
-            </p>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-              We are starting where the pain is sharpest: procurement and
-              admin. Describe what you need (the best modern sofa for the
-              Birchwell living room) and get real options across your vendor
-              network, organized inside the project instead of buried in your
-              inbox.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* The "Where we are going" copy and the three-up gallery that used to
           sit here were removed: the interactive roadmap directly above now
           covers the same ground stage by stage, and the Studio plan is the

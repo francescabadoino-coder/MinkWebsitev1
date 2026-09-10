@@ -28,34 +28,31 @@ export default function ShowcasePage() {
         <Navigation />
 
         <div>
-          {/* Page hero — proportioned to match the home/agents/pricing heroes:
-              the same pt-44 lg:pt-56 top rhythm below the fixed nav so the
-              header breathes, with the bloom anchored into the top corner. */}
-          <section className="relative overflow-hidden pt-44 pb-4 lg:pt-56">
-            {/* Same signature chartreuse bloom as the other pages, here
-                anchored top-right and interactive so it drifts with the
-                cursor — a variation on the treatment, not a copy. */}
+          {/* Page hero — the same centered marketing-hero treatment as the home
+              and agents pages: a top-center chartreuse bloom faded before the
+              text, the same pt-44 lg:pt-56 rhythm below the fixed nav, and a
+              centered display headline with a serif-italic accent word. */}
+          <section className="relative flex flex-col overflow-hidden">
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-x-0 top-0 h-[62vh]"
+              className="absolute inset-x-0 top-0 h-[60vh] pointer-events-none"
               style={{
                 WebkitMaskImage:
-                  "radial-gradient(95% 75% at 82% -8%, #000 26%, transparent 64%)",
+                  "radial-gradient(110% 80% at 50% -10%, #000 28%, transparent 62%)",
                 maskImage:
-                  "radial-gradient(95% 75% at 82% -8%, #000 26%, transparent 64%)",
+                  "radial-gradient(110% 80% at 50% -10%, #000 28%, transparent 62%)",
               }}
             >
-              <AnimatedWaves interactive />
+              <AnimatedWaves />
             </div>
-            <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-12">
-              <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                Showcase
-                <span className="h-px w-8 bg-foreground/30" />
-              </span>
-              <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.04] tracking-tight text-balance md:text-5xl lg:text-7xl">
-                The work designers ship with Mink.
+
+            <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 pt-44 pb-8 text-center lg:px-12 lg:pt-56 lg:pb-10">
+              <h1 className="mb-8 font-display text-[clamp(2.5rem,8vw,6rem)] leading-[0.95] tracking-tight text-balance">
+                The work designers{" "}
+                <span className="font-serif italic text-foreground">ship</span>{" "}
+                with Mink.
               </h1>
-              <p className="mt-6 max-w-[52ch] text-lg leading-relaxed text-muted-foreground text-pretty lg:text-xl">
+              <p className="mx-auto max-w-2xl text-xl leading-relaxed text-muted-foreground text-pretty lg:text-2xl">
                 Rooms designed on Pro, and the real trade products Ora sourced
                 for them, from brief to purchase order.
               </p>

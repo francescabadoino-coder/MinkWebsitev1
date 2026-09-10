@@ -30,14 +30,6 @@ const FOUNDERS = [
   },
 ];
 
-// Tribute to the 12 practicing designers of the Mink Customer Study. Portraits
-// are AI-generated stand-ins (the real designers are not publicly named), shown
-// as a cluster of small bubbles in the third team-grid cell.
-const STUDY_DESIGNER_PORTRAITS = Array.from(
-  { length: 12 },
-  (_, i) => `/designers/designer-${String(i + 1).padStart(2, "0")}.png`,
-);
-
 export default function AboutPage() {
   return (
     <BetaAccessProvider>
@@ -223,7 +215,7 @@ export default function AboutPage() {
             Meet the team.
           </h2>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid max-w-3xl gap-8 sm:grid-cols-2">
             {FOUNDERS.map((person) => (
               <article
                 key={person.title}
@@ -259,45 +251,6 @@ export default function AboutPage() {
                 </p>
               </article>
             ))}
-
-            {/* Third cell: tribute to the Mink Customer Study designers. Mirrors
-                the founder card frame, but swaps the single portrait for a
-                cluster of 12 small bubbles. */}
-            <article className="flex flex-col items-center rounded-3xl border border-foreground/10 bg-muted/40 p-8 text-center">
-              {/* Media region matches the founders' 144px portrait height and
-                  is vertically centered, so all three headings share a baseline. */}
-              <div className="flex h-36 items-center justify-center">
-                <div className="grid grid-cols-4 gap-2">
-                  {STUDY_DESIGNER_PORTRAITS.map((src, i) => (
-                    <span
-                      key={src}
-                      className="relative h-10 w-10 overflow-hidden rounded-full bg-muted ring-1 ring-foreground/10"
-                    >
-                      <Image
-                        src={src || "/placeholder.svg"}
-                        alt={`One of the 12 interior designers from the Mink Customer Study, portrait ${i + 1}`}
-                        fill
-                        sizes="40px"
-                        className="object-cover"
-                      />
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <h3 className="mt-7 text-xl font-medium font-display">
-                The Mink Customer Study
-              </h3>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                The founding designers
-              </p>
-              <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
-                Twelve practicing interior designers, from solo practitioners to
-                studio principals, opened up their real projects and workflows to
-                us. Their hard-won insight is stitched into every corner of the
-                product. Portraits are illustrative, in tribute to the
-                collaborators who made Mink possible.
-              </p>
-            </article>
           </div>
         </div>
 

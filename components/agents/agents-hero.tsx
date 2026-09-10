@@ -40,8 +40,13 @@ export function AgentsHero() {
         >
           {/* Cooper is a display accent: emphasise one word, not a whole
               clause, or the wider serif overwhelms the Nourd headline. */}
-          Meet Ora, the AI agent that{" "}
-          <span className="font-serif italic text-foreground">actually</span>{" "}
+          Meet Ora, the interior design AI agent that{" "}
+          {/* Signature headline emphasis: serif italic + Dancing pill,
+              matching the home and showcase heroes. */}
+          <span className="relative inline-block font-serif italic pr-1 text-foreground">
+            <span className="inline-flex">actually</span>
+            <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-accent" />
+          </span>{" "}
           does the work.
         </h1>
 

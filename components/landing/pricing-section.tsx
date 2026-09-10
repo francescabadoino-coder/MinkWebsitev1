@@ -8,15 +8,17 @@ import { FEATURE_FOOTNOTES } from "./pricing/pricing-footnote-data";
 
 export const plans = [
   {
-    name: "Starter",
-    description: "See how much time Mink saves you, free forever.",
-    price: { monthly: 0, annual: 0 },
+    name: "Slate",
+    description: "Everything you need to start sourcing with Ora.",
+    // Entry paid plan. `annual` is the monthly-equivalent when billed yearly.
+    price: { monthly: 29, annual: 22 },
     seats: "1 designer",
     features: [
-      "50 2D visualizations / month",
+      "100 2D visualizations / month",
       "Ora design-brief analysis",
       "Product recommendations from vetted brands",
       "Transparent reasoning on every pick",
+      "Trade vendor access & pricing requests",
     ],
     cta: "Sign up",
     popular: false,
@@ -28,10 +30,9 @@ export const plans = [
     price: { monthly: 69, annual: 52 },
     seats: "1 designer",
     features: [
-      "Everything in Starter",
+      "Everything in Slate",
       "500 2D visualizations / month",
       "Ora agentic procurement, end to end",
-      "Trade vendor access & pricing requests",
       "AI-drafted vendor & client emails",
       "One-click spec, invoice & visual exports",
       "Track every Mink order & delivery in one place",
@@ -55,6 +56,26 @@ export const plans = [
     popular: false,
   },
 ];
+
+/**
+ * The free trial tier. It is intentionally NOT part of `plans` so the three
+ * paid cards stay a clean 3-up grid; it renders as a standalone banner below
+ * the paid plans via <TrialBanner />. 15 visualizations are free, then a paid
+ * plan is required for more. Furniture procurement is unlocked during the trial.
+ */
+export const trialPlan = {
+  name: "Trial",
+  description:
+    "Try Mink on a real project. 15 visualizations to see how Ora sources, with furniture procurement fully unlocked.",
+  features: [
+    "15 2D visualizations to start",
+    "Unlimited furniture procurement",
+    "Ora design-brief analysis",
+    "Product recommendations from vetted brands",
+    "Transparent reasoning on every pick",
+  ],
+  cta: "Start free",
+};
 
 export function PlanCard({
   plan,
@@ -226,6 +247,72 @@ export function PlanCard({
   );
 }
 
+/**
+ * Standalone free-trial banner shown beneath the three paid cards. Uses a
+ * dashed outline and no price column so it reads as a distinct "try first"
+ * option rather than a fourth tier competing with the paid plans.
+ */
+export function TrialBanner({
+  showFootnotes = false,
+}: {
+  /** Footnote markers only render on the pricing page, where the list lives. */
+  showFootnotes?: boolean;
+}) {
+  const { open } = useBetaAccess();
+
+  return (
+    <div className="relative overflow-hidden rounded-3xl border border-dashed border-foreground/25 bg-foreground/[0.02] p-8 lg:p-10">
+      <div className="grid gap-8 md:grid-cols-2 md:items-center md:gap-12">
+        {/* Left: supporting copy + action */}
+        <div className="flex flex-col">
+          <div className="flex items-baseline gap-3">
+            <h3 className="font-display text-3xl tracking-tight">
+              {trialPlan.name}
+            </h3>
+            <span className="font-display text-2xl tracking-tight tabular-nums text-muted-foreground">
+              $0
+            </span>
+            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+              Free · no card
+            </span>
+          </div>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground text-pretty">
+            {trialPlan.description}
+          </p>
+
+          <button
+            onClick={() => open()}
+            className="group/cta mt-8 inline-flex w-fit items-center justify-center gap-2 rounded-full bg-cta px-8 py-3.5 text-sm font-medium text-cta-foreground transition-all hover:bg-cta/90"
+          >
+            {trialPlan.cta}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+          </button>
+
+          <p className="mt-4 max-w-md text-xs leading-relaxed text-muted-foreground">
+            Once you&apos;ve used your 15 visualizations, subscribe to Slate,
+            Pro, or Studio to keep generating.
+            {showFootnotes && <Fn n={2} />}
+          </p>
+        </div>
+
+        {/* Right: what's included */}
+        <ul className="flex flex-col gap-3.5 md:border-l md:border-foreground/10 md:pl-12">
+          {trialPlan.features.map((feature) => (
+            <li key={feature} className="flex items-start gap-2.5">
+              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                <Check className="h-2.5 w-2.5" strokeWidth={3.5} />
+              </span>
+              <span className="text-sm leading-snug text-muted-foreground">
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export function PricingSection() {
   const [isAnnual, setIsAnnual] = useState(false);
 
@@ -280,6 +367,11 @@ export function PricingSection() {
           {plans.map((plan, idx) => (
             <PlanCard key={plan.name} plan={plan} idx={idx} isAnnual={isAnnual} />
           ))}
+        </div>
+
+        {/* Free trial, positioned beneath the paid plans */}
+        <div className="mt-6">
+          <TrialBanner />
         </div>
       </div>
     </section>

@@ -13,7 +13,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
     items: [
       {
         q: "What happens after the free trial?",
-        a: "Starter is free forever, with no trial and no card. Pro and Studio include a free trial, and when it ends you'll be charged the price shown for your plan, $69 per month for Pro or $119 per month for Studio, unless you cancel before then. Annual plans are billed $624 per year for Pro or $1,068 per year for Studio. We send a reminder before the first charge, and you can cancel any time from account settings.",
+        a: "The free Trial gives you 15 visualizations with no card required, and furniture procurement is fully unlocked. To generate more, subscribe to Slate ($29 per month), Pro ($69 per month), or Studio ($119 per month). Annual plans are billed $264, $624, or $1,068 per year respectively. Paid plans renew automatically until you cancel, and you can cancel any time from account settings.",
       },
       {
         q: "Do you store my card details?",
@@ -25,7 +25,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
       },
       {
         q: "What's the difference between monthly and annual billing?",
-        a: "Monthly is $69 for Pro and $119 for Studio, charged every month. Annual is billed once a year at $624 for Pro or $1,068 for Studio, which saves you about 25% compared to paying month to month. Both renew automatically until you cancel, prices shown exclude tax, and you can switch between the two any time.",
+        a: "Monthly is $29 for Slate, $69 for Pro, and $119 for Studio, charged every month. Annual is billed once a year at $264 for Slate, $624 for Pro, or $1,068 for Studio, which saves you about 25% compared to paying month to month. Both renew automatically until you cancel, prices shown exclude tax, and you can switch between the two any time.",
       },
       {
         q: "Can prices change after I subscribe?",
@@ -41,8 +41,12 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
         a: "One visualization is a single AI-generated visual of a product or room concept created from your brief. Your monthly allowance resets at the start of each billing cycle.",
       },
       {
-        q: "What's the difference between Starter and Pro?",
-        a: "Starter lets you see how Ora thinks: design-brief analysis, product recommendations, and transparent reasoning on every pick. Pro unlocks the parts that save real time: trade vendor access, end-to-end procurement, AI-drafted vendor and client emails, one-click exports, and order tracking.",
+        q: "How do Slate, Pro, and Studio differ?",
+        a: "Slate ($29/mo) covers the sourcing essentials: 100 visualizations a month, Ora's design-brief analysis, product recommendations from vetted brands, transparent reasoning on every pick, and trade vendor access. Pro ($69/mo) is where Ora starts doing the work for you, adding end-to-end agentic procurement, AI-drafted vendor and client emails, one-click exports, order tracking, and 500 visualizations a month. Studio ($119/mo) is the fullest version of Mink: everything in Pro, 1,000 visualizations a month, and priority delivery tracking with every order in one place. Every tier is built for a single designer.",
+      },
+      {
+        q: "Who is Studio for?",
+        a: "Studio is for designers running Mink at full tilt: high project volume, lots of concurrent sourcing, and orders in flight that need close tracking. You get everything in Pro plus 1,000 visualizations a month and priority delivery tracking, so nothing slips between vendors. If you're regularly bumping against Pro's 500-visualization allowance, Studio is the natural step up.",
       },
       {
         q: "Do I need my own trade accounts?",
@@ -50,7 +54,7 @@ const GROUPS: { title: string; items: { q: string; a: string }[] }[] = [
       },
       {
         q: "Can I track my orders in Mink?",
-        a: "Yes. On Pro and Studio, every order Mink procures for you is tracked in one place, so you're not chasing shipping updates across a dozen vendor emails. (Starter doesn't include order tracking.)",
+        a: "Yes. On Pro, every order Ora procures for you is tracked in one place, so you're not chasing shipping updates across a dozen vendor emails. Studio adds priority delivery tracking on top for higher-volume workloads. (Slate and the free Trial don't include order tracking.)",
       },
       {
         q: "What happens if I reach my monthly visualization limit?",

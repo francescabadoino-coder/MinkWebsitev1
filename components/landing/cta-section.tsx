@@ -1,12 +1,40 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedWaves } from "./animated-waves";
 import { useBetaAccess } from "./beta-access-provider";
 
-export function CtaSection() {
+/** The default headline's styled "designing" word, reused by page overrides. */
+export function AccentWord({ children }: { children: ReactNode }) {
+  return (
+    <span
+      className="relative inline-block font-serif italic pr-1"
+      style={{
+        color: "#232323",
+        WebkitTextStroke: "1px #232323",
+        paintOrder: "stroke fill",
+      }}
+    >
+      <span className="inline-flex">{children}</span>
+      <span className="absolute -bottom-1 left-0 right-1 h-1 bg-accent rounded-full" />
+    </span>
+  );
+}
+
+/**
+ * Shared closing CTA. Copy defaults to the homepage messaging; pages can pass
+ * their own `headline` / `description` so the CTA isn't a verbatim repeat.
+ * Use <AccentWord> in a custom headline to keep the underlined-serif treatment.
+ */
+export function CtaSection({
+  headline,
+  description,
+}: {
+  headline?: ReactNode;
+  description?: ReactNode;
+} = {}) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { open } = useBetaAccess();
@@ -47,19 +75,11 @@ export function CtaSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          Stop sourcing. Start{" "}
-          <span
-            className="relative inline-block font-serif italic pr-1"
-            style={{
-              color: "#232323",
-              WebkitTextStroke: "1px #232323",
-              paintOrder: "stroke fill",
-            }}
-          >
-            <span className="inline-flex">designing</span>
-            <span className="absolute -bottom-1 left-0 right-1 h-1 bg-accent rounded-full" />
-          </span>
-          .
+          {headline ?? (
+            <>
+              Stop sourcing. Start <AccentWord>designing</AccentWord>.
+            </>
+          )}
         </h2>
 
         <p
@@ -67,8 +87,8 @@ export function CtaSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Interior designers lose 500+ hours a year to non-billable work. Ora
-          takes the sourcing off your plate, so you can get back to design.
+          {description ??
+            "Interior designers lose 500+ hours a year to non-billable work. Ora takes the sourcing off your plate, so you can get back to design."}
         </p>
 
         <div

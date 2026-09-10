@@ -15,16 +15,16 @@ export const BILLING_TOPICS: PolicyTopic[] = [
     id: "billing-and-renewal",
     title: "Billing and renewal",
     paragraphs: [
-      "Paid plans (Pro and Studio) renew automatically at the price shown until you cancel. Monthly plans renew each month on the date your plan started. Annual plans renew each year on that date.",
+      "Paid plans (Slate, Pro, and Studio) renew automatically at the price shown until you cancel. Monthly plans renew each month on the date your plan started. Annual plans renew each year on that date.",
       "You can cancel any time from account settings. Cancellation takes effect at the end of your current billing period, and you keep full access until then. We do not offer partial refunds for time remaining in a billing cycle.",
-      "Starter is free and takes no card. Pro and Studio include a free trial. When the trial ends you will be charged the price shown for your plan unless you cancel before then. We send a reminder before the first charge.",
+      "The Trial is free and takes no card. It includes 15 visualizations to start; to generate more you subscribe to Slate, Pro, or Studio, and billing begins when you subscribe. We send a reminder before any first charge.",
     ],
   },
   {
     id: "usage-limits",
     title: "Usage limits",
     paragraphs: [
-      "Monthly visualization limits are 50 on Starter, 500 on Pro, and 1,000 on Studio. Limits reset at the start of each billing cycle and do not roll over.",
+      "Monthly visualization limits are 100 on Slate, 500 on Pro, and 1,000 on Studio, and reset at the start of each billing cycle without rolling over. The free Trial includes 15 visualizations to start, after which a paid plan is required to generate more.",
       "One visualization is a single AI-generated visual of a product or room concept created from your brief. If you reach your limit before the cycle resets, you can upgrade any time for a higher limit. Work you have already created is never affected.",
     ],
   },
@@ -41,7 +41,7 @@ export const BILLING_TOPICS: PolicyTopic[] = [
     title: "Order and delivery tracking",
     paragraphs: [
       "Mink consolidates tracking for orders it procures on your behalf. Actual shipping times, costs, and fulfillment are handled by the vendor.",
-      "Mink is not the seller or shipper of record for these orders and does not control vendor lead times, backorders, damage in transit, or delivery scheduling. Order tracking is included on Pro and Studio, with priority tracking on Studio. Starter does not include order tracking.",
+      "Mink is not the seller or shipper of record for these orders and does not control vendor lead times, backorders, damage in transit, or delivery scheduling. Order tracking is included on Pro and Studio, with priority tracking on Studio. Slate and the free Trial do not include order tracking.",
     ],
   },
   {

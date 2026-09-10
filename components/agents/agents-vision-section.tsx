@@ -42,12 +42,12 @@ export function AgentsVisionSection() {
         >
           <p className="text-[clamp(1.5rem,3.4vw,2.75rem)] font-serif italic leading-[1.22] tracking-tight text-balance">
             &ldquo;We envision a world where AI agents and humans live{" "}
-            <span className="text-foreground underline underline-offset-[6px] decoration-foreground/30">
+            <span className="text-foreground underline underline-offset-4 decoration-foreground/30">
               symbiotically
             </span>
             . Our agents handle the tedious work, so designers can focus on what
             matters most:{" "}
-            <span className="text-foreground underline underline-offset-[6px] decoration-foreground/30">
+            <span className="text-foreground underline underline-offset-4 decoration-foreground/30">
               designing beautiful spaces.
             </span>
             &rdquo;

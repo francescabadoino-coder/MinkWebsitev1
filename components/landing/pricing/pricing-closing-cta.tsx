@@ -1,12 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedWaves } from "@/components/landing/animated-waves";
 import { useBetaAccess } from "@/components/landing/beta-access-provider";
 
-export function PricingClosingCta() {
+/**
+ * Shared closing CTA for the pricing and showcase pages. Copy defaults to the
+ * pricing messaging; pages can override `headline` / `description` so the CTA
+ * speaks to that page (the showcase page passes work/proof-oriented copy).
+ * The signature underlined-serif emphasis in the headline is preserved either
+ * way — a plain `headline` string still renders with the standard treatment.
+ */
+export function PricingClosingCta({
+  headline,
+  description,
+}: {
+  headline?: ReactNode;
+  description?: ReactNode;
+} = {}) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { open } = useBetaAccess();
@@ -43,13 +56,18 @@ export function PricingClosingCta() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          Start free. Upgrade when it{" "}
-          {/* Copy stays #232323; the underline bar carries the emphasis */}
-          <span className="relative inline-block font-serif italic pr-1">
-            <span className="inline-flex">pays off</span>
-            <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-foreground/25" />
-          </span>
-          .
+          {headline ?? (
+            <>
+              Start free. Upgrade when it{" "}
+              {/* Copy stays Midnight; the signature Dancing underline bar carries
+                  the emphasis, matching the hero/CTA/about treatment site-wide. */}
+              <span className="relative inline-block font-serif italic pr-1">
+                <span className="inline-flex">pays off</span>
+                <span className="absolute -bottom-1 left-0 right-1 h-1 rounded-full bg-accent" />
+              </span>
+              .
+            </>
+          )}
         </h2>
 
         <p
@@ -57,8 +75,8 @@ export function PricingClosingCta() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          Try Mink on a real project at no cost. No credit card, no commitment,
-          just your hours back.
+          {description ??
+            "Try Mink on a real project at no cost. No credit card, no commitment, just your hours back."}
         </p>
 
         <div

@@ -8,6 +8,7 @@ const footerLinks = {
   Product: [
     { name: "Agents", href: "/agents" },
     { name: "Ora", href: "/#features" },
+    { name: "Showcase", href: "/showcase" },
     { name: "Pricing", href: "/pricing" },
     { name: "Privacy by design", href: "/#privacy" },
   ],

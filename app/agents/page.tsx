@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/landing/navigation";
-import { CtaSection } from "@/components/landing/cta-section";
+import { CtaSection, AccentWord } from "@/components/landing/cta-section";
 import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
 import { AgentsHero } from "@/components/agents/agents-hero";
@@ -121,7 +121,14 @@ export default function AgentsPage() {
         <AgentsCapabilitiesSection />
         <AgentsFounderQuote />
         <AgentsArchitectureSection />
-        <CtaSection />
+        <CtaSection
+          headline={
+            <>
+              Set the intent. Ora does the <AccentWord>rest</AccentWord>.
+            </>
+          }
+          description="Sourcing, vendor outreach, side-by-side comparisons, and client-ready specs, handled end to end by an agent that's always on the best available model."
+        />
         <FooterSection />
       </main>
     </BetaAccessProvider>

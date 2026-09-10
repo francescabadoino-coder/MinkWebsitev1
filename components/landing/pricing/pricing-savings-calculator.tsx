@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { useCountUp, useInViewOnce } from "@/hooks/use-count-up";
+import { AnimatedWaves } from "@/components/landing/animated-waves";
 import { INDUSTRY_SOURCE_PLACEHOLDER } from "./pricing-footnote-data";
 
 const WEEKS_PER_YEAR = 52;
@@ -43,18 +44,35 @@ export function PricingSavingsCalculator() {
   const animatedHours = useCountUp(reclaimedHours, { active: inView });
   const animatedMonthly = useCountUp(monthlyValue, { active: inView });
 
-  // Section rhythm, container width, and eyebrow match the home page
+  // Leads the pricing page as the hero, so the heading is the page h1 and the
+  // top padding matches the home and agents heroes (pt-44 lg:pt-56) so the
+  // header sits with the same airy space below the fixed nav.
   return (
-    <section className="relative py-24 lg:py-32">
-      <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+    <section className="relative overflow-hidden pt-44 pb-24 lg:pt-56 lg:pb-32">
+      {/* Signature chartreuse bloom — anchored top-left here (vs. top-right on
+          the home hero) and interactive, so it drifts toward the cursor. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[62vh]"
+        style={{
+          WebkitMaskImage:
+            "radial-gradient(95% 75% at 18% -8%, #000 26%, transparent 64%)",
+          maskImage:
+            "radial-gradient(95% 75% at 18% -8%, #000 26%, transparent 64%)",
+        }}
+      >
+        <AnimatedWaves interactive />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-[1200px] px-6 lg:px-12">
         <span className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Savings calculator
+          Cost calculator
           <span className="h-px w-8 bg-foreground/30" />
         </span>
-        <h2 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-balance lg:text-6xl">
-          What is procurement costing you?
-        </h2>
-        <p className="mt-4 max-w-[46ch] text-lg leading-relaxed text-muted-foreground text-pretty">
+        <h1 className="mt-5 max-w-[20ch] font-display text-4xl leading-[1.04] tracking-tight text-balance md:text-5xl lg:text-7xl">
+          What is procurement and sourcing costing you?
+        </h1>
+        <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-muted-foreground text-pretty lg:text-xl">
           Estimate the time and billable income you could reclaim by letting
           Ora handle the sourcing.
         </p>

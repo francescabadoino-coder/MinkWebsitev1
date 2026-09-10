@@ -31,6 +31,19 @@
  * with its tile surface, with no visible seam.
  */
 
+/**
+ * A shoppable pin placed on a room image. `x`/`y` are percentages of the
+ * image's width/height (0-100) marking the pin center, and `product` matches
+ * a `PRODUCT_TILES` label so the viewer can resolve the piece Ora sourced.
+ * Coordinates are tuned to the current renders; re-tune them if an image src
+ * is swapped.
+ */
+export type Hotspot = {
+  x: number;
+  y: number;
+  product: string;
+};
+
 export type ProofTile = {
   /** Visible label beneath the tile. */
   label: string;
@@ -51,26 +64,43 @@ export type ProofTile = {
    * Never rendered anywhere in the UI.
    */
   reference?: string;
+  /**
+   * Shoppable pins for room tiles: each links a point in the render to the
+   * product Ora sourced for it. Rooms with no catalogued pieces omit this.
+   */
+  hotspots?: Hotspot[];
 };
 
 /** Room designs. Full-bleed 3:2 landscape photography on a muted surface. */
 export const ROOM_TILES: ProofTile[] = [
   {
-    label: "Kitchen",
-    src: "/rooms/kitchen.png",
-    alt: "Open kitchen in warm neutrals with a low waterfall-edge stone island, flat-panel white oak cabinetry, and a black linear chandelier hung with opal glass globes above the island.",
-    isIllustrative: true,
-  },
-  {
     label: "Living Room",
     src: "/rooms/living-room.png",
     alt: "Living room anchored by a low cream tuxedo sofa on slim cylindrical metal legs, a grey chenille swivel tub chair on an upholstered plinth base, and a black linear chandelier hung with opal glass globes above a white oak floor.",
     isIllustrative: true,
+    hotspots: [
+      { x: 52, y: 25, product: "Viaggio Linear Chandelier" },
+      { x: 64, y: 57, product: "855 Design Classic Sofa" },
+      { x: 22, y: 71, product: "Heidi Swivel Lounge Chair" },
+    ],
+  },
+  {
+    label: "Kitchen",
+    src: "/rooms/kitchen.png",
+    alt: "Open kitchen in warm neutrals with a low waterfall-edge stone island, flat-panel white oak cabinetry, and a black linear chandelier hung with opal glass globes above the island.",
+    isIllustrative: true,
+    hotspots: [{ x: 48, y: 31, product: "Viaggio Linear Chandelier" }],
   },
   {
     label: "Bathroom",
     src: "/rooms/bathroom.png",
     alt: "Spa-like bathroom with a floating white oak vanity, large-format stone tile, minimal matte fixtures, and daylight washing down the stone wall.",
+    isIllustrative: true,
+  },
+  {
+    label: "Bedroom",
+    src: "/rooms/bedroom.png",
+    alt: "Serene bedroom with a low platform bed and oatmeal linen headboard dressed in layered cream and taupe bedding, flanked by white oak nightstands, a black linear pendant with opal glass globes, white oak floors, and sheer linen drapes filtering warm daylight.",
     isIllustrative: true,
   },
 ];
@@ -111,3 +141,8 @@ export const PRODUCT_TILES: ProofTile[] = [
       "Visual Comfort, Viaggio Linear Chandelier, SKU 700LSVGO, https://www.visualcomfort.com/viaggio-linear-chandelier-700lsvgo/",
   },
 ];
+
+/** Resolve a hotspot's `product` label to its full product tile. */
+export function getProductByLabel(label: string): ProofTile | undefined {
+  return PRODUCT_TILES.find((tile) => tile.label === label);
+}

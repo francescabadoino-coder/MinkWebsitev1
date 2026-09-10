@@ -157,7 +157,7 @@ const jsonLd = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD',
-        description: 'Free Starter plan available.',
+        description: 'Free trial available; paid plans (Slate, Pro, Studio) from $29/mo.',
       },
       audience: {
         '@type': 'Audience',

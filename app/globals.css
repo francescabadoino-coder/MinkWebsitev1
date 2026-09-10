@@ -5,14 +5,18 @@
 
 :root {
   /* ── Mink brand palette ───────────────────────────────────────────────
-     Three named brand colours, sampled directly from the logo artwork:
-       Dancing  #CFDC66  — the signature chartreuse
-       Midnight #232323  — near-black, all copy and primary CTAs
-       Day      #E3E3E3  — the light grey ground
-     Everything else is a tint of these. Never introduce a fourth hue. */
+     Primary base:   Midnight #232323  — copy, dark grounds, primary CTAs
+                     Day      #E3E3E3  — the light grey page ground
+     Accent:         Dancing  #CFDC66  — the signature chartreuse, primary
+                     AND secondary accent (fills, underlines, glow, rings)
+     Secondary base: Granite  #69695A  — warm deep grey-green
+                     Dusty    #B2BBBE  — cool light grey-blue
+     Never introduce a hue outside this set. */
   --brand-dancing: #cfdc66;
   --brand-midnight: #232323;
   --brand-day: #e3e3e3;
+  --brand-granite: #69695a;
+  --brand-dusty: #b2bbbe;
 
   --background: #e3e3e3; /* Day */
   --foreground: #232323; /* Midnight */
@@ -43,9 +47,9 @@
   --ring: #cfdc66;
   --chart-1: #cfdc66; /* Dancing */
   --chart-2: #232323; /* Midnight */
-  --chart-3: #8a8a8a; /* mid grey */
-  --chart-4: #a8b84a; /* deeper Dancing */
-  --chart-5: #4a4a4a; /* dark grey */
+  --chart-3: #69695a; /* Granite */
+  --chart-4: #b2bbbe; /* Dusty */
+  --chart-5: #a8b84a; /* deeper Dancing */
   /* The brand mark is a soft squircle — echo that generous curve in UI. */
   --radius: 1rem;
   /* Sidebar mirrors the same three brand values, no approximations. */
@@ -115,6 +119,10 @@
   --color-dancing: var(--brand-dancing);
   --color-midnight: var(--brand-midnight);
   --color-day: var(--brand-day);
+  /* Secondary bases — available as `bg-granite`, `text-dusty`, etc.
+     Registered for use; not yet applied to any semantic role. */
+  --color-granite: var(--brand-granite);
+  --color-dusty: var(--brand-dusty);
 }
 
 @layer base {
@@ -167,8 +175,8 @@
   }
 
   /* Accent-colored text is always bold for readability against light surfaces.
-     Only affects the `text-accent` class (green text), never `text-accent-foreground`
-     (the dark text on green buttons). */
+     Only affects the `text-accent` class (Dancing text), never `text-accent-foreground`
+     (the dark text on Dancing buttons). */
   .text-accent {
     font-weight: 700;
   }
@@ -336,7 +344,9 @@
   .animate-orbit-spin,
   .animate-orbit-spin-reverse,
   .animate-orbit-counter,
-  .animate-orbit-counter-reverse {
+  .animate-orbit-counter-reverse,
+  .marquee,
+  .marquee-reverse {
     animation: none;
   }
 }

@@ -66,7 +66,10 @@ export function AgentsByDesigners() {
             }`}
           >
             Mink started with 12 designers.{" "}
-            <span className="font-bold underline underline-offset-4">Not a product.</span>
+            <span className="relative inline-block font-serif italic">
+              Not a product.
+              <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />
+            </span>
           </h2>
           <p
             className={`mt-6 text-lg text-background/60 leading-relaxed text-pretty transition-all duration-700 delay-100 ${
@@ -91,7 +94,7 @@ export function AgentsByDesigners() {
             designing. I want those hours back.&rdquo;
           </p>
           <footer className="mt-6 font-mono text-xs uppercase tracking-widest text-background/40">
-            The Mink Customer Study · anonymised
+            The Mink Customer Study · anonymized
           </footer>
         </blockquote>
 

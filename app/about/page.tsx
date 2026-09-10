@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { User } from "lucide-react";
+import { User, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
@@ -20,22 +20,13 @@ const FOUNDERS = [
     image: "/founder-obradovic.jpg",
     name: "Francesca Obradovic",
     title: "Co-Founder & CEO",
-    bio: "Francesca Obradovic is an award-winning marketer and product innovator. While sourcing for her own interior design projects, and studying the craft at RISD, she ran headfirst into the procurement mess every designer knows. She brings a decade of product experience across T-Mobile and startups, including T-Mobile's first AI-powered shopping experience, used by 20M+ shoppers.",
-  },
-  {
-    // Name and portrait intentionally withheld: this founder is still employed
-    // as a practising designer and is not publicly associated with Mink yet.
-    // Do not reintroduce her name, photo, or employer without her sign-off.
-    image: null,
-    name: null,
-    title: "Co-Founder & CCO",
-    bio: "Our CCO is a practising interior designer at a leading Seattle firm. Over nearly a decade specifying residential and commercial interiors, and designing custom furniture piece by piece, she's lived the sourcing and procurement headaches Mink exists to solve. That fluency in how designers actually work shapes every decision behind the product.",
+    bio: "Francesca Obradovic is an award-winning marketer and product leader with a decade of experience across T-Mobile and startups, including T-Mobile's first AI-powered shopping experience, used by more than 20 million shoppers. While studying interior design at RISD and sourcing pieces for her own projects, she ran headfirst into the procurement mess every designer knows, and set out to solve it.",
   },
   {
     image: "/founder-banzhef.jpg",
     name: "Caleb Banzhaf",
     title: "Co-Founder & CTO",
-    bio: "Caleb Banzhaf is a full-stack engineer with 15+ years building AI-powered products and automated systems, from R&D in T-Mobile's innovation lab to founding his own ventures. He architected the technology behind Ora, Mink's AI procurement agent. Now building his own custom container home, he knows the sourcing problem firsthand, and his LLM and agentic depth is what lets Mink solve it.",
+    bio: "Caleb is a senior full-stack engineer from South Africa with more than 15 years of experience building complex systems. His work spans agricultural drone image analysis, blockchain infrastructure, on-chain payment automation, MCP-based game developer tools, and enterprise-scale LLM deployments for contract data extraction and version control. He also built T-Mobile's ChatGPT plugin assistant.",
   },
 ];
 
@@ -102,7 +93,8 @@ export default function AboutPage() {
             <p className="text-pretty font-display text-4xl leading-[1.1] tracking-tight lg:text-6xl">
               To empower interior designers around the world to do what they do
               best,{" "}
-              <span className="font-bold underline underline-offset-4">
+              {/* Editorial band accent: clean serif italic, no underline. */}
+              <span className="font-serif italic">
                 design beautiful spaces.
               </span>
             </p>
@@ -138,22 +130,28 @@ export default function AboutPage() {
             </h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-muted-foreground">
               <p>
-                &ldquo;When I moved into interior design, I fell for the craft
-                immediately, and just as fast I hit everything standing in its
-                way. A huge share of my time was not design at all. It was
-                sourcing, coordinating, admin, and endless back and forth.
+                &ldquo;I came to interior design and fell for the craft at once.
+                Just as quickly, I met everything standing in its way. Most of
+                my week had nothing to do with design. It went to sourcing,
+                coordinating, chasing quotes, and the endless back and forth in
+                between.
               </p>
               <p>
-                Before writing a line of product, we ran the Mink Customer
-                Study: 12 practicing interior designers, from solo practitioners
-                to studio principals, walking us through their real projects. All
-                12 pointed at the same bottleneck. None of them wanted to keep
-                the tools they were using.
+                I assumed the fault was mine, that experience would eventually
+                teach me the shortcut I&apos;d clearly missed. So I asked the
+                designers I admire most, certain they&apos;d reveal it. Not one
+                did. Each described the very same grind, in the very same words.
+                This was never a beginner&apos;s blind spot. It was a real
+                problem, hiding in plain sight, and no one had thought to fix it.
               </p>
               <p>
-                So we built for what they told us, then kept going back to them
-                as we shipped. mink is AI shaped by the people who live this
-                work, for the people who live it too.&rdquo;
+                So we set out to prove it. In the Mink Customer Study, twelve
+                practicing designers, from solo practitioners to studio
+                principals, walked us through their real projects, and every one
+                of them named the same bottleneck. So we built the answer: AI
+                agents made for interior designers, that take on the sourcing,
+                the quotes, and the coordination, and hand the hours back to the
+                work only a designer can do.&rdquo;
               </p>
             </div>
             {/* Portrait sits beside the attribution so the quote has a face */}
@@ -190,10 +188,15 @@ export default function AboutPage() {
             <span className="h-px w-8 bg-background/30" />
           </span>
           <p className="mt-6 max-w-4xl text-pretty font-display text-4xl leading-[1.1] tracking-tight lg:text-6xl">
-            We envision a world where AI agents and humans live{" "}
-            <span className="font-serif italic">symbiotically.</span> Our agents
-            handle the tedious work so designers and vendors can focus on making
-            their clients happy.
+            We envision a world where AI agents and humans work{" "}
+            {/* Editorial band accent on the dark ground: Dancing chartreuse
+                serif italic, no underline. */}
+            <span className="font-serif italic text-accent">symbiotically.</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-background/70">
+            Agents take on the sourcing, the quotes, and the follow-ups.
+            Designers keep the taste, the client relationships, and the final
+            say.
           </p>
         </div>
       </section>
@@ -245,6 +248,36 @@ export default function AboutPage() {
                 </p>
               </article>
             ))}
+
+            {/* Third cell: a recruiting CTA that mirrors the founder card
+                frame. The whole card is a mailto link; the accent icon circle
+                stands in for the portrait so the three cells share a baseline. */}
+            <Link
+              href="mailto:hello@mink.design?subject=Joining%20Mink"
+              className="group flex flex-col items-center rounded-3xl border border-foreground/10 bg-muted/40 p-8 text-center transition-colors hover:border-foreground/25 hover:bg-muted/70"
+            >
+              <span className="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full bg-accent ring-1 ring-foreground/10">
+                <ArrowUpRight
+                  className="h-12 w-12 text-accent-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  aria-hidden="true"
+                />
+              </span>
+              <h3 className="mt-7 text-xl font-medium font-display">
+                Join the team
+              </h3>
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                We&apos;re hiring
+              </p>
+              <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
+                We&apos;re a small team building the tools we wish every
+                independent interior designer had. If you&apos;re an engineer, a
+                designer, or someone who knows the trade inside and out,
+                we&apos;d love to hear from you. We care about good craft,
+                honesty, and giving designers back their time for the creative
+                work they love. Reach out and tell us what you&apos;d build,
+                what you&apos;d improve, and how you&apos;d help us shape Mink.
+              </p>
+            </Link>
           </div>
         </div>
 
@@ -252,23 +285,6 @@ export default function AboutPage() {
 
       {/* SECTION 4 — What We are Building (interactive agent roadmap) */}
       <AgentsRoadmapSection />
-
-      <section className="pb-16 lg:pb-20">
-        <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
-          <div className="max-w-3xl">
-            <p className="font-mono text-xs uppercase tracking-widest text-foreground">
-              Where we are today:
-            </p>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-              We are starting where the pain is sharpest: procurement and
-              admin. Describe what you need (the best modern sofa for the
-              Birchwell living room) and get real options across your vendor
-              network, organized inside the project instead of buried in your
-              inbox.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* The "Where we are going" copy and the three-up gallery that used to
           sit here were removed: the interactive roadmap directly above now

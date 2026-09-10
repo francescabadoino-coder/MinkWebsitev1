@@ -12,7 +12,7 @@ const securityFeatures = [
   {
     icon: Lock,
     title: "Client data protected",
-    description: "Project data, client information, and design files are never shared with third parties.",
+    description: "Project data, client information, and design files are never sold to third parties.",
   },
   {
     icon: Eye,

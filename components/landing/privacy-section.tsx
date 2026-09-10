@@ -7,7 +7,7 @@ const principles = [
   {
     Icon: EyeOff,
     title: "We never sell your data",
-    description: "Your renders, floorplans, and selections are never sold or shared with third parties.",
+    description: "Your renders, floorplans, and selections are never sold to third parties.",
     statusLabel: "Data sales",
     statusValue: "Never",
   },
@@ -21,7 +21,7 @@ const principles = [
   {
     Icon: Lock,
     title: "Encrypted by default",
-    description: "Projects are encrypted in transit and at rest, never shared across accounts.",
+    description: "Projects are encrypted in transit and at rest, and isolated to your account.",
     statusLabel: "Encryption",
     statusValue: "AES-256",
   },
@@ -61,7 +61,11 @@ export function PrivacySection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Your data stays yours. <span className="font-bold underline underline-offset-4">Always.</span>
+            Your data stays yours.{" "}
+            <span className="relative inline-block font-serif italic whitespace-nowrap">
+              Always.
+              <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />
+            </span>
           </h2>
           <p
             className={`mt-6 text-lg text-background/60 leading-relaxed text-pretty transition-all duration-700 delay-100 ${

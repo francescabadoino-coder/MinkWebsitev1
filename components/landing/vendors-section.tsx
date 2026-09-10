@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 const VENDORS = [
   "Andonian Rugs",
   "Brume",
@@ -26,6 +32,31 @@ export function VendorsSection() {
       <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center mb-12">
         <h2 className="text-4xl lg:text-6xl font-display tracking-tight text-balance text-foreground">
           Source from brands you love
+          <Popover>
+            <PopoverTrigger
+              aria-label="About our relationship with these brands"
+              className="ml-1 inline-flex h-6 w-6 translate-y-[-0.6em] items-center justify-center rounded-full border border-foreground/20 align-top font-sans text-xs text-foreground/60 transition-colors hover:border-foreground/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:h-7 lg:w-7 lg:text-sm"
+            >
+              1
+            </PopoverTrigger>
+            <PopoverContent
+              align="center"
+              className="max-w-sm text-pretty text-left font-sans text-sm leading-relaxed text-muted-foreground"
+            >
+              We are not in any formal partnerships with these brands. We simply
+              use publicly available information to help them connect with
+              potential customers. If you represent one of these brands and want
+              it removed, or would like to formalize a partnership, we&apos;d
+              love to hear from you at{" "}
+              <a
+                href="mailto:partners@mymink.co"
+                className="font-medium text-foreground underline underline-offset-4"
+              >
+                partners@mymink.co
+              </a>
+              .
+            </PopoverContent>
+          </Popover>
         </h2>
       </div>
 

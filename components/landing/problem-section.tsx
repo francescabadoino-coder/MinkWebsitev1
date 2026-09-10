@@ -60,8 +60,8 @@ export function ProblemSection() {
               </span>
             </div>
             <p className="mt-4 text-lg text-muted-foreground leading-relaxed max-w-md text-pretty">
-              of an interior designer&apos;s time goes to procurement and admin
-              (the bulk of it{" "}
+              of an interior designer&apos;s time goes to administration,
+              procurement, and sourcing (the bulk of it{" "}
               <span className="text-foreground font-medium">non-billable</span>).
             </p>
 

@@ -26,7 +26,7 @@ const FOUNDERS = [
     image: "/founder-banzhef.jpg",
     name: "Caleb Banzhaf",
     title: "Co-Founder & CTO",
-    bio: "Originally from South Africa, Caleb is a Senior Full Stack engineer with over 15 years of technical experience and has architected and built a wide range of cutting-edge systems, ranging from agricultural drone image processing and analysis, blockchain server management and on chain payments automation, MCP based game developer tools, to large enterprise scale LLM deployments like contract data extraction and version control, and customer facing services like T-Mobile's ChatGPT plugin assistant. Caleb is focused on long term scalability and technical execution, and enjoys using novel approaches to overcome roadblocks.",
+    bio: "Originally from South Africa, Caleb is a Senior Full Stack engineer with over 15 years of technical experience and has architected and built a wide range of cutting-edge systems, ranging from agricultural drone image processing and analysis, blockchain server management and on chain payments automation, MCP based game developer tools, to large enterprise scale LLM deployments like contract data extraction and version control, and customer facing services like T-Mobile's ChatGPT plugin assistant.",
   },
 ];
 

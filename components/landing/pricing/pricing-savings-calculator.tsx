@@ -21,7 +21,7 @@ const RATE_STEP = 5;
 const DEFAULT_RATE = 150;
 
 const sliderSkin =
-  "[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-track]]:bg-foreground/20 [&_[data-slot=slider-range]]:bg-accent [&_[data-slot=slider-thumb]]:size-4 [&_[data-slot=slider-thumb]]:border-transparent [&_[data-slot=slider-thumb]]:bg-accent";
+  "[&_[data-slot=slider-track]]:h-2 [&_[data-slot=slider-track]]:bg-foreground/85 [&_[data-slot=slider-range]]:bg-accent [&_[data-slot=slider-thumb]]:size-4 [&_[data-slot=slider-thumb]]:border-transparent [&_[data-slot=slider-thumb]]:bg-accent";
 
 function formatDollars(value: number) {
   return `$${value.toLocaleString("en-US", { maximumFractionDigits: 0 })}`;

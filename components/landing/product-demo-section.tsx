@@ -211,14 +211,14 @@ export function ProductDemoSection() {
             {/* 1) Dark top navigation bar */}
             <div className="flex items-center justify-between gap-4 bg-foreground px-4 py-2.5 text-background lg:px-5">
               <div className="flex items-center gap-5">
-                <MinkWordmark variant="day" className="h-4 w-auto" />
+                <MinkWordmark variant="dancing" className="h-4 w-auto" />
                 <nav className="hidden items-center gap-1.5 sm:flex">
                   {NAV_TABS.map((tab) => (
                     <span
                       key={tab.label}
                       className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium ${
                         tab.active
-                          ? "bg-background/15 text-background"
+                          ? "bg-accent/20 text-accent"
                           : "text-background/60"
                       }`}
                     >
@@ -230,7 +230,7 @@ export function ProductDemoSection() {
               </div>
               <div className="flex items-center gap-3">
                 <Bell className="h-4 w-4 text-background/60" />
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-[10px] font-semibold text-foreground">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-accent text-[10px] font-semibold text-accent-foreground">
                   F
                 </span>
               </div>
@@ -398,7 +398,7 @@ export function ProductDemoSection() {
                                   sizes="(max-width: 640px) 100vw, 200px"
                                 />
                                 <span className="absolute top-2 right-2 flex items-center gap-1 rounded-full bg-foreground px-2 py-0.5 text-[10px] font-medium text-background">
-                                  <Check className="h-3 w-3" /> Match
+                                  <Check className="h-3 w-3 text-accent" /> Match
                                 </span>
                               </div>
                               <div className="p-3">

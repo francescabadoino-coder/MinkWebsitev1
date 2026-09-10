@@ -133,7 +133,7 @@ const jsonLd = {
       '@id': `${siteUrl}/#organization`,
       name: 'Mink',
       url: siteUrl,
-      logo: `${siteUrl}/brand/mark-midnight.png`,
+      logo: `${siteUrl}/brand/mark-dancing.png`,
       description:
         'AI procurement platform that helps interior designers source products from their favorite brands in seconds.',
       sameAs: [],

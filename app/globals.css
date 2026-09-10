@@ -5,15 +5,18 @@
 
 :root {
   /* ── Mink brand palette ───────────────────────────────────────────────
-     Mink is a greyscale brand. Two values carry the entire identity:
-       Midnight #232323  — all copy, primary CTAs AND the accent
-       Day      #E3E3E3  — the light grey ground
-     Dancing (#CFDC66) is retained ONLY for the logo artwork, which ships
-     in that colourway. It is never a UI accent — no chartreuse fills,
-     underlines, rings or badges. Never introduce a fourth hue. */
+     Primary base:   Midnight #232323  — copy, dark grounds, primary CTAs
+                     Day      #E3E3E3  — the light grey page ground
+     Accent:         Dancing  #CFDC66  — the signature chartreuse, primary
+                     AND secondary accent (fills, underlines, glow, rings)
+     Secondary base: Granite  #69695A  — warm deep grey-green
+                     Dusty    #B2BBBE  — cool light grey-blue
+     Never introduce a hue outside this set. */
   --brand-dancing: #cfdc66;
   --brand-midnight: #232323;
   --brand-day: #e3e3e3;
+  --brand-granite: #69695a;
+  --brand-dusty: #b2bbbe;
 
   --background: #e3e3e3; /* Day */
   --foreground: #232323; /* Midnight */
@@ -31,10 +34,9 @@
   /* Secondary copy is Midnight at 62% — readable, still one hue.
      Hierarchy comes from size and weight, not from a second colour. */
   --muted-foreground: #5f5f5f;
-  /* Accent = Midnight. The brand accent is the dark grey, not a colour.
-     Pairs with Ground text when used as a fill. */
-  --accent: #232323;
-  --accent-foreground: #f4f4f3;
+  /* Accent = Dancing. Always pairs with Midnight text, never white. */
+  --accent: #cfdc66;
+  --accent-foreground: #232323;
   /* CTA = Midnight, used for every primary call-to-action */
   --cta: #232323;
   --cta-foreground: #f4f4f3;
@@ -42,13 +44,12 @@
   --destructive-foreground: oklch(0.985 0.002 90);
   --border: #cdcdcc;
   --input: #d5d5d4;
-  --ring: #232323;
-  /* A single-hue grey ramp — the brand carries no second colour. */
-  --chart-1: #232323; /* Midnight */
-  --chart-2: #4a4a4a;
-  --chart-3: #6f6f6f;
-  --chart-4: #949493;
-  --chart-5: #b9b9b8;
+  --ring: #cfdc66;
+  --chart-1: #cfdc66; /* Dancing */
+  --chart-2: #232323; /* Midnight */
+  --chart-3: #69695a; /* Granite */
+  --chart-4: #b2bbbe; /* Dusty */
+  --chart-5: #a8b84a; /* deeper Dancing */
   /* The brand mark is a soft squircle — echo that generous curve in UI. */
   --radius: 1rem;
   /* Sidebar mirrors the same three brand values, no approximations. */
@@ -56,10 +57,10 @@
   --sidebar-foreground: #232323;
   --sidebar-primary: #232323;
   --sidebar-primary-foreground: #f4f4f3;
-  --sidebar-accent: #232323;
-  --sidebar-accent-foreground: #f4f4f3;
+  --sidebar-accent: #cfdc66;
+  --sidebar-accent-foreground: #232323;
   --sidebar-border: #cdcdcc;
-  --sidebar-ring: #232323;
+  --sidebar-ring: #cfdc66;
 }
 
 @theme inline {
@@ -118,6 +119,10 @@
   --color-dancing: var(--brand-dancing);
   --color-midnight: var(--brand-midnight);
   --color-day: var(--brand-day);
+  /* Secondary bases — available as `bg-granite`, `text-dusty`, etc.
+     Registered for use; not yet applied to any semantic role. */
+  --color-granite: var(--brand-granite);
+  --color-dusty: var(--brand-dusty);
 }
 
 @layer base {
@@ -169,9 +174,9 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* The accent is now Midnight — the same value as body copy — so weight,
-     not hue, is what makes `text-accent` read as emphasis. Never affects
-     `text-accent-foreground` (the Ground text on Midnight fills). */
+  /* Accent-colored text is always bold for readability against light surfaces.
+     Only affects the `text-accent` class (Dancing text), never `text-accent-foreground`
+     (the dark text on Dancing buttons). */
   .text-accent {
     font-weight: 700;
   }

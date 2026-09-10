@@ -100,12 +100,12 @@ export function CaptureLoop() {
         }}
       >
         <div
-          className={`absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-background/50 to-transparent ${
+          className={`absolute inset-x-0 h-24 bg-gradient-to-b from-transparent via-accent/40 to-transparent ${
             scanning ? "animate-scan-sweep" : ""
           }`}
         />
         <div
-          className={`absolute inset-x-0 h-0.5 bg-background shadow-[0_0_12px_2px_var(--background)] ${
+          className={`absolute inset-x-0 h-0.5 bg-accent shadow-[0_0_12px_2px_var(--accent)] ${
             scanning ? "animate-scan-line" : ""
           }`}
         />

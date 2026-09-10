@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { User } from "lucide-react";
+import { User, ArrowUpRight } from "lucide-react";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
 import { BetaAccessProvider } from "@/components/landing/beta-access-provider";
@@ -215,7 +215,7 @@ export default function AboutPage() {
             Meet the team.
           </h2>
 
-          <div className="mt-14 grid max-w-3xl gap-8 sm:grid-cols-2">
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {FOUNDERS.map((person) => (
               <article
                 key={person.title}
@@ -251,6 +251,32 @@ export default function AboutPage() {
                 </p>
               </article>
             ))}
+
+            {/* Third cell: a recruiting CTA that mirrors the founder card
+                frame. The whole card is a mailto link; the accent icon circle
+                stands in for the portrait so the three cells share a baseline. */}
+            <Link
+              href="mailto:hello@mink.design?subject=Joining%20Mink"
+              className="group flex flex-col items-center rounded-3xl border border-foreground/10 bg-muted/40 p-8 text-center transition-colors hover:border-foreground/25 hover:bg-muted/70"
+            >
+              <span className="relative flex h-36 w-36 items-center justify-center overflow-hidden rounded-full bg-accent ring-1 ring-foreground/10">
+                <ArrowUpRight
+                  className="h-12 w-12 text-accent-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  aria-hidden="true"
+                />
+              </span>
+              <h3 className="mt-7 text-xl font-medium font-display">
+                Join the team
+              </h3>
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                We&apos;re hiring
+              </p>
+              <p className="mt-5 text-pretty leading-relaxed text-muted-foreground">
+                Designers, engineers, and builders who care about the craft of
+                interior design: we&apos;d love to hear from you. Reach out and
+                tell us how you&apos;d help shape Mink.
+              </p>
+            </Link>
           </div>
         </div>
 

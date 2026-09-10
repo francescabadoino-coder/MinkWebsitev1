@@ -93,10 +93,8 @@ export default function AboutPage() {
             <p className="text-pretty font-display text-4xl leading-[1.1] tracking-tight lg:text-6xl">
               To empower interior designers around the world to do what they do
               best,{" "}
-              {/* Quiet serif-italic emphasis, matching the agents mission line
-                  and the rest of the multi-word editorial accents. A pill bar
-                  is only for single-line headline words; this phrase wraps. */}
-              <span className="font-serif italic underline underline-offset-4 decoration-foreground/30">
+              {/* Editorial band accent: clean serif italic, no underline. */}
+              <span className="font-serif italic">
                 design beautiful spaces.
               </span>
             </p>
@@ -190,19 +188,15 @@ export default function AboutPage() {
             <span className="h-px w-8 bg-background/30" />
           </span>
           <p className="mt-6 max-w-4xl text-pretty font-display text-4xl leading-[1.1] tracking-tight lg:text-6xl">
-            We envision a world where AI agents and humans live{" "}
-            <span className="relative inline-block font-serif italic">
-              symbiotically.
-              <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />
-            </span>
-            <span className="mt-8 block">
-              Our agents handle the tedious work so designers and vendors can
-              focus on making their{" "}
-              <span className="relative inline-block font-serif italic">
-                clients happy.
-                <span className="absolute -bottom-1 left-0 right-0 h-1 rounded-full bg-accent" />
-              </span>
-            </span>
+            We envision a world where AI agents and humans work{" "}
+            {/* Editorial band accent on the dark ground: Dancing chartreuse
+                serif italic, no underline. */}
+            <span className="font-serif italic text-accent">symbiotically.</span>
+          </p>
+          <p className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-background/70">
+            Agents take on the sourcing, the quotes, and the follow-ups.
+            Designers keep the taste, the client relationships, and the final
+            say.
           </p>
         </div>
       </section>
